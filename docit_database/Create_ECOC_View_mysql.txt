@@ -1,0 +1,12 @@
+Create view docit.ECOCData_Views
+as
+SELECT c.chain_of_custody_id AS ECOCData_View_Id, l.name AS SITE, date_format(c.date_actual_sample_start, '%m/%d/%Y') AS DATE, 2.5 AS Size, sc.name, c.date_actual_sample_start AS Date_actual, c.sample_volume AS TVOC, '' AS TVOU, S.wbea_id AS WEBA_ID, S.lab_sample_id AS TID, 
+             N.body AS 'WBEA NOTES', sc.schedule_id
+FROM   docit.ChainOfCustodys AS c RIGHT OUTER JOIN
+             docit.Schedules AS sc ON c.schedule_id = sc.schedule_id LEFT OUTER JOIN
+             docit.Locations AS l ON c.location_id = l.location_id LEFT OUTER JOIN
+             docit.ChainOfCustodys_Samples AS CS LEFT OUTER JOIN
+             docit.Samples AS S ON CS.sample_id = S.sample_id ON c.chain_of_custody_id = CS.chain_of_custody_id LEFT OUTER JOIN
+             docit.Notes_ChainOfCustodys AS NC INNER JOIN
+             docit.Notes AS N ON NC.note_id = N.note_id ON c.chain_of_custody_id = NC.chain_of_custody_id
+WHERE (c.sample_type_id = 1) AND (instr(sc.name,'EC/OC' ) > 0);

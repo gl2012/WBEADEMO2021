@@ -1,0 +1,80 @@
+﻿
+@{
+    ViewBag.Title = "ListNoteSMysql";
+}
+@using PagedList.Mvc; //import this so we get our HTML Helper
+@using PagedList;
+@using WBEADMS.Views
+@using WBEADMS.Views.NoteHelpers;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section MainContent
+{
+
+    <h2 class="title-icon icon-samples">Notes Index</h2>
+    <p>
+        @ViewData["test"]</p>
+    <p>
+        @ViewData["strerror"]</p>
+        <link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
+        <div id="actionArea">
+            <div class="buttonList">
+                @if (ViewContext.RouteData.Values["controller"].ToString() == "Note")
+                {
+                    @Html.ActionLink("Create New", "Create")
+                }
+                else if (ViewContext.RouteData.Values["controller"].ToString() == "DailySystemCheck")
+                {
+                    @Html.ActionLink("Perform DSC", "SelectDSCLocation")
+                }
+                <a href="#" title="Print" onclick="window.print();"><span>Print</span></a>
+            </div>
+        </div>
+
+        <!-- Data table -->
+        <table id="sortable-index">
+            <tr>
+                <th style="width:65px;" class="no-sort">Actions</th>
+                <th style="min-width:80px;">Location</th>
+                <th class="no-sort">Parameter</th>
+                <th style="min-width:120px;">Date&nbsp;Created</th>
+                <th style="min-width:120px;">Date&nbsp;Occurred</th>
+                <th>Author</th>
+                <th class="no-sort">Note Body</th>
+            </tr>
+            @if (ViewBag.onepageNote != null)
+            {
+                foreach (var item in ViewBag.onepageNote)
+                {
+                    <tr>
+                        <td class="tableActionLinks">
+                            <span>@item.note_id</span>
+
+                        </td>
+                        <td>
+                            @item.name
+                        </td>
+                        <td>
+                            @item.parameter
+                        </td>
+                        <td>
+                            @Html.Encode(item.date_created)
+                        </td>
+                        <td>
+                            @Html.Encode(item.date_occurred)
+                        </td>
+                        <td>
+                            @Html.Encode(item.username)
+                        </td>
+                        <td>
+                            @Html.Encode(item.body)
+                        </td>
+                    </tr>
+                }
+                @Html.PagedListPager((IPagedList)ViewBag.onepageNote, page => Url.Action("ListNotesMysql", new { page }),PagedListRenderOptions.MinimalWithPageCountText)
+            }
+        </table>
+
+    }

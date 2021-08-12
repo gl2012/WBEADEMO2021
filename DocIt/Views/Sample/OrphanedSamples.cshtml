@@ -1,0 +1,171 @@
+﻿@model IEnumerable<WBEADMS.Models.Sample>
+@using WBEADMS.Views
+@using WBEADMS.Helpers
+@{
+    ViewBag.Title = "Orphaned Samples";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section MainContent
+{
+    <h2 class="title-icon icon-samples">Orphaned Samples</h2>
+
+    @using (Html.BeginForm("OrphanedSamples", "Sample", FormMethod.Post, new { enctype = "multipart/form-data", autocomplete = "off" }))
+    {
+        <!-- Search Area -->
+        <div class="searchArea noPrint" style="margin-top:5px">
+            <table border="0">
+                <tr>
+                    <td>
+                        <div class="searchField">
+                            <label for="sample_type_id">Sample Type:</label>
+                            @Html.DropDownList("sample_type_id", "")
+                        </div>
+                    </td>
+                    <td>
+                        <div class="searchField">
+                            <label for="is_orphaned_sample">Orphaned Sample(DataBase):</label>
+                            @Html.DropDownList("is_orphaned_sample")
+                        </div>
+
+                    </td>
+                    <td>
+                        <div class="searchField">
+                            <label for="search">Date Start :</label>
+                            @Html.Raw(Html.DatePicker("date_from"))
+                         <!---  <input id="date_from" name="date_from" value="//ViewData["date_from"]" />-->
+                        </div>
+                    </td>
+                    <td>
+                        <label for="search">Date End :</label>
+                        <!-- <input class="datepicker" id="date_to" maxlength="10" name="date_to" type="date" value="" />-->
+                      <!--  <input id="date_to" name="date_to" value="ViewData["date_to"]" />-->
+                        @Html.Raw(Html.DatePicker("date_to"))
+
+                        @Html.Hidden("sort", ViewData["sort"])
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" class="btnSearch" name="form_action" value="Search" />
+                    </td>
+                    <td>   <input type="reset" class="btnSearch" name="form_action" value="Reset" /></td>
+                    <td>  <input type="submit" class="btnSearch" name="form_action" value="Submit Selected" /></td>
+                </tr>
+
+                <tr><td colspan="4"> <a href="/Sample.aspx/ExportOrphanedSamples" style="color:crimson">Download Orphaned Samples(Mysql)  </a><!-- Action Area + Top Paging--> </td></tr>
+            </table>
+
+        </div>
+
+
+
+
+        if (ViewData["HasSamples"].ToString() == "Yes")
+        {
+            Session["SelectedType"] = (int)ViewData["TypeId"];
+            Session["SelectedFrom"] = (string)ViewData["From"];
+            Session["SelectedTo"] = (string)ViewData["To"];
+
+
+
+
+            <div id="actionArea">
+
+                <input type="checkbox" id="select_all" name="select_all" onclick="checkboxFunc()" /> <span class="labelFilter1 success"><b> &nbsp Select All &nbsp </b></span>
+            </div>
+            <!-- Data table -->
+            <table id="sortable-index">
+                <tr>
+                    <th></th>
+                    <th class="no-sort" width="140">Action</th>
+                    <th>Prepared By</th>
+                    <th>Sample <Br />Type</th>
+                    <th sort_name="wbea-id">WBEA Sample ID</th>
+                    <th sort_name="media-serial">Media Serial #</th>
+                    <th>Lab Sample ID</th>
+                    <th>Received From Lab</th>
+                    <th class="no-sort">Travel_Blank</th>
+                    <th class="no-sort">Is_Orphaned_Sample</th>
+                </tr>
+
+                @foreach (var item in Model)
+                {
+
+                    <tr>
+                        <td>
+                            @if (item.is_orphaned_sample == "True")
+                            {<input type="checkbox" class="checkbox" name="parameter_list" id="parameter" value="@item.sample_id" checked />}
+                            else
+                            {<input type="checkbox" class="checkbox" name="parameter_list" id="parameter" value="@item.sample_id" />}
+                        </td>
+                        <td class="tableActionLinks">
+
+                            <span class="tableActionDetails"> @Html.Raw(Html.ActionButton(item.sample_id, "Details", new { id = item.sample_id }))</span>
+
+                        </td>
+                        <td>
+                            @item.PreparedBy
+                        </td>
+                        <td>
+                            @Html.Encode(item.SampleType.name)
+                        </td>
+                        <td>
+                            @Html.Encode(item.wbea_id)
+                        </td>
+                        <td>
+                            @Html.Encode(item.media_serial_number)
+                        </td>
+                        <td>
+                            @Html.Encode(item.lab_sample_id)
+
+                        </td>
+                        <td>
+                            @Html.Encode(item.DateReceivedFromLab)
+                        </td>
+                        <td>
+                            @item.is_travel_blank.IsBool()
+                        </td>
+                        <td>@item.is_orphaned_sample </td>
+
+                    </tr>
+
+                }
+
+            </table>
+
+            <script type="text/javascript">
+                $(document).ready(function () {
+                    $("#date_from").datepicker({
+                        dateFormat: "yy-mm-dd", changeMonth: true,
+                        changeYear: true, yearRange: "-30:+10"
+                    });
+
+                    $("#date_to").datepicker({ dateFormat: "yy-mm-dd",changeMonth: true,
+                        changeYear: true, yearRange: "-30:+10" });
+
+
+
+                });
+                $(function () {
+                    //Assign Click event to Button.
+
+                    $("#btnCheck").click(function () {
+                        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                        for (var i = 0; i < checkboxes.length; i++) { checkboxes[i].checked = true; }
+                    });
+                    $("#btnUnCheck").click(function () {
+                        var checkboxes = document.querySelectorAll('input[type="checkbox"]');
+                        for (var i = 0; i < checkboxes.length; i++) { checkboxes[i].checked = false; }
+                    });
+                });
+
+            </script>
+
+        }
+    }
+}
+
+
+

@@ -1,0 +1,204 @@
+﻿
+@model IEnumerable<WBEADMS.Models.ChainOfCustody>
+@using WBEADMS.Views
+@using WBEADMS.Helpers
+@{
+    ViewBag.Title = "BatchCOCExport";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section MainContent
+{
+    <style>
+        .loadingDiv {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            right: 20px;
+            bottom: 20px;
+            color: red;
+        }
+    </style>
+
+    @using (Html.BeginForm("BatchCOCExport", "ChainofCustody", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <h2 class="title-icon icon-samples">Export ChainofCustodys</h2>
+
+
+        <!-- Search Area -->
+
+        <div class="searchArea noPrint" style="margin-top:5px">
+            <table border="0">
+                <tr>
+                    <td>
+                        <div class="searchField">
+                            <label for="sample_type_id">Sample Type:</label>
+                            @Html.DropDownList("sample_type_id", "")
+                        </div>
+                        <div class="searchField">
+                            <label for="sample_type_id">File Type:</label>
+                            @Html.DropDownList("File_type_id", "")
+                        </div>
+
+                        <div class="searchField">
+                            <label for="search">Date Start :</label>
+
+                            @Html.Raw(Html.DatePicker("date_from"))
+                            @Html.ValidationMessage("date_from", "Please Enter date", new { @class = "text-danger" })
+
+                            <!--  <input id="date_from" name="date_from" value="Request.Form["date_from"]" />-->
+
+                            <label for="search">Date End :</label>
+                            <!-- <input class="datepicker" id="date_to" maxlength="10" name="date_to" type="date" value="" />-->
+                            @Html.Raw(Html.DatePicker("date_to"))
+                            <!--Html.TextBox("date_to", "", new { //readonly = "readonly" })-->
+                            @Html.ValidationMessage("date_to", "Please Enter date", new { @class = "text-danger" })
+
+                        </div>
+
+                        @Html.Hidden("sort", ViewData["sort"])
+                    <td>
+                    <td>
+
+                        <input type="submit" class="btnSearch" name="form_action" value="Search" />
+                        <input type="reset" class="btnSearch" name="form_action" value="Reset" />
+
+                    <td>
+                </tr>
+                <tr>
+                    <td>
+                        @if (ViewData["HasCOC"].ToString() == "Yes")
+                        {
+                            if (ViewData["Type"].ToString() == "Zip")
+                            {<a href="/ChainOfCustody.aspx/ExportCOC" style="color:crimson">Download COC Files(Zip Format)  </a><!-- Action Area + Top Paging-->
+                            }
+                            else
+                            {
+                                <a href="/ChainOfCustody.aspx/ExportCOCExcel" style="color:crimson"> Download COC Files(Execl Format)  </a>
+                            }
+                        }
+                    </td>
+            </table>
+
+        </div>
+
+
+
+
+        if (ViewData["HasCOC"].ToString() == "Yes")
+        {
+            Session["SelectedType"] = (int)ViewData["TypeId"];
+            Session["SelectedFrom"] = (string)ViewData["From"];
+            Session["SelectedTo"] = (string)ViewData["To"];
+
+
+
+            <div id="actionArea">
+
+            </div>
+            <!-- Data table -->
+            <table id="sortable-index">
+                <tr>
+                    <th class="no-sort">Actions</th>
+                    <th>
+                        ID
+                    </th>
+                    <th>
+                        Sample Type
+                    </th>
+                    <th>
+                        Location
+                    </th>
+                    <th sort_name="wbea-id">
+                        WBEA Sample Id
+                    </th>
+                    <th sort_name="media-serial">
+                        Media Serial #
+                    </th>
+                    <th>
+                        Scheduled Date
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                </tr>
+
+
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="tableActionLinks">
+                            <span class="tableActionDetails">@Html.Raw(Html.ActionButton("Details", "Details", new { id = item.chain_of_custody_id }))</span>
+                            @if (!item.Status.IsComplete)
+                            {
+                        <span class="tableActionOpen">@Html.Raw(Html.ActionButton("Open", "Open", new { id = item.chain_of_custody_id }) )</span>
+                            }
+                        </td>
+                        <td>
+                            @Html.Encode(item.chain_of_custody_id)
+                        </td>
+                        <td>
+                            @Html.Encode(item.SampleType.name)
+                        </td>
+                        <td>
+                            @if (item.Deployment.Location != null)
+                            {
+                                @Html.ActionLink(item.Deployment.Location.name, "Details", new { controller = "Location", id = item.Deployment.Location.location_id })
+                            }
+                        </td>
+                        <td>
+
+                            @{ var wbea_ids = "";
+                            }
+                            @if (item.Samples != null)
+                            {
+                                foreach (var sample in item.Samples)
+                                {
+                                    wbea_ids = @sample.wbea_id + " " + wbea_ids;
+                                }
+                            }
+                            @wbea_ids
+                        </td>
+                        <td>
+
+                            @{var mediaIds = "";}
+                            @if (item.Samples != null)
+                            {
+                                foreach (var sample in item.Samples)
+                                {
+                                    mediaIds = @sample.media_serial_number + " " + mediaIds;
+                                }
+                            }
+                            @mediaIds
+                        </td>
+                        <td>
+                            @HtmlHelperExtensions.ToStringOrDefaultTo(item.Preparation.ScheduledSamplingDate, "Unknown", WBEADMS.ViewsCommon.FetchDateTimeFormat())
+                        </td>
+                        <td>
+                            @HtmlHelperExtensions.ToStringOrDefaultTo(item.Status, "NONE")
+                        </td>
+                    </tr>
+                }
+
+            </table>
+
+            <script type="text/javascript">
+             
+
+
+
+                /*   $('a').click(function(){
+                   document.getElementById("wait").innerHTML = "Hello World";
+
+                  });*/
+
+            </script>
+
+        }
+    }
+}
+
+
+

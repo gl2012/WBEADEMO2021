@@ -1,0 +1,177 @@
+﻿@using WBEADMS.Helpers
+@model WBEADMS.Models.NoteSetting
+@{
+    ViewBag.Title = "Note Setting";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section MainContent
+{
+
+    <h2 class="title-icon icon-account"> Edit Note Advanced Search Setting</h2>
+    <p>
+        @Html.ActionLink("Back to Note Settings List", "Index", "NoteSetting")
+    </p>
+
+
+    @Html.Raw(@Html.BoxedValidationSummary("Edit was unsuccessful. Please correct the errors and try again."))
+
+        @using(Html.BeginForm("Edit", "NoteSetting", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+    <fieldset>
+        <legend>Setting Details</legend>
+        <table>
+            <tr>
+                <td>
+
+                    <table>
+                        <tr>
+                            <td class="label"> Name:</td>
+                            <td>
+                                @Html.TextBox("setting_name")
+                                @Html.ValidationMessage("setting_name", "*")
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="label">Description:</td>
+                            <td>
+                                <span class="textArea newNote">@Html.TextArea("setting_description")</span>
+                                @Html.ValidationMessage("setting_description", "*")
+                            </td>
+                        </tr>
+                       
+                        <tr><td colspan="2"> <input type="submit" value="Save">   </td></tr>
+                    </table>
+                </td>
+                <td>
+                    <table style="border:1px solid grey;">
+                        <tr><td style="vertical-align:text-top"><span class="labelFilter success"><b> &nbsp Filter Setting&nbsp </b></span> </td><td></td><td></td></tr>
+                        <tr>
+                            <td>
+                                <table>
+
+
+                                    <tr>
+                                        <td>
+                                            SampleType Group
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div id="divPanel">
+                                                <ul id="sample_type_list_ul" class="noBullets">
+
+                                                    @foreach (var parameter in (Dictionary<string, string>)ViewData["sampletypeList"])
+                                                    {
+
+
+                                                        <li>
+                                                            @if (((List<string>)ViewData["SelectedSampletypeIdList"]).Contains(parameter.Key.ToString()))
+                                                            {<input type="checkbox" name="sampletype_list" id="parameter" value="@parameter.Key" checked />}
+                                                            else
+                                                            { <input type="checkbox" name="sampletype_list" id="parameter" value="@parameter.Key" />}
+                                                            <label style="display:inline" for="parameter@parameter.Key">@parameter.Value</label>
+                                                        </li>
+                                                    }
+
+                                                </ul>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </table>
+                            </td>
+
+                            <td>
+                                <table>
+
+
+                                    <tr>
+                                        <td>
+                                            Parameter Group
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div id="divPanel1">
+                                                <ul id="parameter_list_ul" class="noBullets">
+
+                                                    @foreach (var p in (SelectList)ViewData["parameterList"])
+                                                    {
+
+
+                                                    <li>
+                                                        @if (((List<string>)ViewData["SelectedParameterIdList"]).Contains(p.Value))
+                                                        {<input type="checkbox" name="parameter_list" id="parameter1"  value="@p.Value" checked />}
+                                                        else
+                                                        {<input type="checkbox" name="parameter_list" id="parameter1"  value="@p.Value" />}
+                                                        <label style="display:inline">@p.Text</label>
+
+
+                                                    </li>
+                                                    }
+
+                                                </ul>
+                                            </div>
+                                        </td>
+                                </table>
+
+                            </td>
+
+                            <td>
+                                <table>
+
+
+                                    <tr>
+                                        <td>
+                                            User Group
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div id="divPanel1">
+                                                <ul id="parameter_list_ul" class="noBullets">
+
+                                                    @foreach (var p in (SelectList)ViewData["AuthorList"])
+                                                    {
+
+
+                                                        <li>
+                                                            @if (((List<string>)ViewData["SelectedUserIdList"]).Contains(p.Value))
+                                                            {<input type="checkbox" name="author_list" id="parameter2" value="@p.Value" checked />}
+                                                            else
+                                                            {<input type="checkbox" name="author_list" id="parameter2" value="@p.Value" />}
+                                                            <label style="display:inline">@p.Text</label>
+
+                                                        </li>
+                                                    }
+
+                                                </ul>
+                                            </div>
+                                        </td>
+                                </table>
+
+                            </td>
+
+
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+        <p>
+            @Html.ActionLink("Back to Note Settings List", "Index", "NoteSetting")
+        </p>
+    </fieldset>
+
+
+
+}
+
+
+
+
+}

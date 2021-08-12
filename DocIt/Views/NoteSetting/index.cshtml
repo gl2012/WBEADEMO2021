@@ -1,0 +1,94 @@
+﻿@model IEnumerable<WBEADMS.Models.NoteSetting>
+
+@{
+    ViewBag.Title = "Note Setting";
+}
+@using PagedList.Mvc; //import this so we get our HTML Helper
+@using PagedList;
+@using WBEADMS.Views
+@using WBEADMS.Views.NoteHelpers;
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section MainContent
+{
+
+    <h2 class="title-icon icon-samples">Notes Advanced Search Setting </h2>
+    <p class="noPrint">Would you like to <strong> @Html.ActionLink("Create A New Advanced Search Setting", "Create", "NoteSetting") </strong> ?</p>
+    <div id="actionArea">
+        <div class="buttonList">
+            @Html.ActionLink("Create New", "Create", "NoteSetting")
+        </div>
+    </div>
+
+    <!-- Data table -->
+    <table id="sortable-index">
+        <tr>
+            <th class="no-sort" width="140">Actions</th>
+            <th>Name</th>
+            <th>Description </th>
+            <th>Sample Type(s)</th>
+            <th>Parameter(s)</th>
+            <th> Author(s)</th>
+            <th>Date Created</th>
+
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            var typename = "";
+            var paraname = "";
+            var username = "";
+            <tr>
+                <td class="tableActionLinks">
+                    <span class="tableActionEdit">@Html.ActionLink("Edit", "Edit", new { id = item.note_setting_id })</span>
+                    <span class="tableActionDetails">@Html.ActionLink("Details", "Details", new { id = item.note_setting_id })</span>
+                </td>
+                <td>
+                    @item.setting_name
+                </td>
+                <td>
+                    @item.setting_description
+                </td>
+                <td>
+                  @if (item.SampleType != null)
+                  { foreach (var i in item.SampleType)
+                     {
+                      typename = i.name + " " + typename;
+                      }
+                  }
+                    @typename
+                </td>
+                <td>
+                    @if (item.parameter != null)
+                    { foreach (var i in item.parameter)
+                      {
+                        paraname = i.name + " " + paraname;
+                       }
+                    }
+                    @paraname
+                </td>
+                <td>
+                  @if (item.user != null)
+                  {  foreach (var i in item.user)
+                     {
+                      username = i.display_name + " " + username;
+                      }
+                  }
+                    @username
+                </td>
+                <td>
+                    @item.create_date
+                </td>
+
+            </tr>
+
+        }
+
+    </table>
+
+    <div class="buttonList">
+        @Html.ActionLink("Create New", "Create", "NoteSetting")
+    </div>
+}

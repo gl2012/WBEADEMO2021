@@ -1,0 +1,247 @@
+<%@ Master Language="C#" Inherits="System.Web.Mvc.ViewMasterPage" %>
+
+<!--<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">-->
+<!--<html xmlns="http://www.w3.org/1999/xhtml">-->
+ <!DOCTYPE html>
+<html>
+<head runat="server">
+   
+    <meta charset="utf-8">
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <title><asp:ContentPlaceHolder ID="TitleContent" runat="server" /></title>
+    <script type="text/javascript" src="<%= Url.Content("~/Scripts/jquery-1.3.2.min.js") %>"></script>
+    <script type="text/javascript" src="<%= Url.Content("~/Scripts/jquery-ui-1.7.1.custom.min.js") %>"></script>
+    <!-- <script type="text/javascript" src="<%= Url.Content("~/Scripts/jquery.tablesorter.min.js") %>"></script> -->
+    <script type="text/javascript" src="<%= Url.Content("~/Scripts/disableTextSelect.js") %>"></script>
+    <script type="text/javascript" src="<%= Url.Content("~/Scripts/table-sortable.js") %>"></script>
+    <script type="text/javascript" src="<%= Url.Content("~/Scripts/setUrlParam.js") %>"></script>
+    <script type="text/javascript" src="<%= Url.Content("~/Scripts/jquery.superfish.js") %>"></script>
+    <script type="text/javascript">
+		$(document).ready(function() { 
+			$('ul.sf-menu').superfish({							// Main Menu Drop-downs::
+				delay:       70,								// one second delay on mouseout 
+				animation:   {opacity:'show',height:'show'},	// fade-in and slide-down animation 
+				speed:       150,								// faster animation speed 
+				autoArrows:  true,								// generation of arrow mark-up 
+				disableHI:	 true,								// set to true to disable hoverIntent detection 
+				dropShadows: false								// disable drop shadows 
+			}); 
+		});
+	</script><link href="~/Content/jquery-ui-1.7.2.custom.css" rel="Stylesheet" type="text/css" /><link href="~/Content/Site.css" rel="stylesheet" type="text/css" /><link href="~/Content/table-sortable.css" rel="stylesheet" type="text/css" />
+    <!--[if lte IE 7]><link href="~/Content/ie7minus.css" rel="stylesheet" type="text/css" /><![endif]--><!--[if IE]><link href="~/Content/ie.css" rel="stylesheet" type="text/css" /><![endif]-->
+    <link href="~/Content/print.css" rel="stylesheet" type="text/css" media="print" /><script type="text/javascript" src="<%= Url.Content("~/Scripts/wmd-helper.js") %>"></script><asp:ContentPlaceHolder ID="HeaderContent" runat="server" />
+</head>
+
+<body>
+   
+    <div class="page"><div class="pageInner">
+		<a name="top"></a>
+
+        <div id="header"><div id="headerInner">
+            <div id="title">
+                <a href="/" title="Home" id="logo"><span>ADMIN PANEL - WBEA Meta Database</span></a>
+            </div>
+       	    <div style="color:white; font-size:xx-small; float:left; padding-left:10px; padding-top:15px">V2.1.1</div>
+            <div id="logindisplay">
+                <% Html.RenderPartial("LogOnUserControl"); %>
+            </div> 
+            
+            <div id="menucontainer">
+            <% if (Request.IsAuthenticated) { %>
+				<ul id="menu" class="menuItems sf-menu">              
+                    <li ctrl="Home Location Item ItemModel ItemMake"><%= Html.MainMenuLink("Home", "Index", "Home")%>
+						<ul>
+							<li><%= Html.ActionLink("List All Items", "Index", "Item") %></li>
+							<li><%= Html.ActionLink("Create New Item", "Create", "Item") %></li>
+							<li class="flyout"><%= Html.ActionLink("Item Models", "Index", "ItemModel") %>
+								<ul>
+									<li><%= Html.ActionLink("List All Models", "Index", "ItemModel") %></li>
+									<li><%= Html.ActionLink("Create New Model", "Create", "ItemModel") %></li>
+								</ul>
+							</li>
+							<li class="flyout"><%= Html.ActionLink("Item Makes", "Index", "ItemMake") %>
+								<ul>
+									<li><%= Html.ActionLink("List All Makes", "Index", "ItemMake") %></li>
+									<li><%= Html.ActionLink("Create New Make", "Create", "ItemMake") %></li>
+								</ul>
+							</li>
+							<!--<li><%= Html.ActionLink("Items History", "ItemsHistory", "Item") %></li>-->
+							<li><%= Html.ActionLink("List All Locations", "Index", "Location") %></li>
+							<li><%= Html.ActionLink("Create New Location", "Create", "Location") %></li>
+						</ul>
+                    </li>
+                    <li ctrl="User"><%= Html.MainMenuLink("Users", "Index", "User")%>
+                    	<ul>
+							<li><%= Html.ActionLink("List All Users", "Index", "User")%></li>
+							<li><%= Html.ActionLink("Create New User", "Create", "User") %></li>
+						</ul>
+					</li>
+                    <li ctrl="Role"><%= Html.MainMenuLink("Roles", "Index", "Role")%>
+						<ul>
+							<li><%= Html.ActionLink("List All Roles", "Index", "Role")%></li>
+							<li><%= Html.ActionLink("Create New Role", "Create", "Role") %></li>
+						</ul>
+					</li>
+                    <li ctrl="Schedule"><%= Html.MainMenuLink("Schedules", "Index", "Schedule")%>
+						<ul>
+							<li><%= Html.ActionLink("List All Schedules", "Index", "Schedule") %></li>
+							<li><%= Html.ActionLink("Create New Schedule", "Create", "Schedule") %></li>
+						</ul>
+					</li>
+                    <li ctrl="Parameter"><%= Html.MainMenuLink("Parameters", "Index", "Parameter")%>
+						<ul>
+							<li><%= Html.ActionLink("List All Parameters", "Index", "Parameter")%></li>
+							<li><%= Html.ActionLink("Create New Parameter", "Create", "Parameter") %></li>
+						</ul>
+					</li>
+                    <li ctrl="Lab ShippingCompany Unit"><%= Html.MainMenuLink("Forms", "Index", "Lab")%>
+						<ul>
+						    <li><%= Html.ActionLink("List All Units", "Index", "Unit")%></li>
+							<li><%= Html.ActionLink("Add Unit", "Create", "Unit")%></li>
+							<li><%= Html.ActionLink("List All Labs", "Index", "Lab")%></li>
+							<li><%= Html.ActionLink("Add Lab", "Create", "Lab") %></li>
+							<li><%= Html.ActionLink("List Shipping Companies", "Index", "ShippingCompany")%></li>
+							<li><%= Html.ActionLink("Add Shipping Company", "Create", "ShippingCompany")%></li>
+						</ul>
+					</li>
+                    <li ctrl="Blackout"><%= Html.MainMenuLink("Blackouts", "Index", "Blackout")%>
+						<ul>
+							<li><%= Html.ActionLink("List All Blackouts", "Index", "Blackout")%></li>
+							<li><%= Html.ActionLink("Create New Blackout", "Create", "Blackout") %></li>
+						</ul>
+					</li>
+                    <li ctrl="SlopeOffset"><%= Html.MainMenuLink("Slope/Offsets", "Index", "SlopeOffset")%>
+						<ul>
+							<li><%= Html.ActionLink("List All Slope/Offsets", "Index", "SlopeOffset")%></li>
+							<li><%= Html.ActionLink("Create New Slope/Offsets", "Create", "SlopeOffset") %></li>
+						</ul>
+					</li>
+                    <li ctrl="WBEAId SampleMediaId"><%= Html.MainMenuLink("Passives", "Index", "WBEAId")%>
+						<ul>
+							<li><%= Html.ActionLink("WBEA Sample ID", "Index", "WBEAId")%></li>
+                            <li><%= Html.ActionLink("Sample Media ID", "Index", "SampleMediaId")%></li>
+						</ul>
+					</li>
+                </ul>
+            <% } %>
+            </div>
+        </div></div>
+
+        <div id="main"><div id="mainInner">
+
+            <asp:ContentPlaceHolder ID="AboveContent" runat="server" />
+        
+            <% if (TempData["notice"] != null || ViewData["notice"] != null) { %>
+            <div class="notice"><%= TempData["notice"] %><%= ViewData["notice"] %></div>
+            <% } %>
+        
+            <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+            
+			<div id="botPaging">
+            <%if (ViewData["pagination"] != null) { %>
+				<div class="paging">
+					<% WBEADMS.Paginator paginator = ((WBEADMS.Paginator)ViewData["pagination"]); %>
+					<div class="pagination"><span class="pagingCount"><%= paginator.ItemCount %> Items</span>
+					<% if (paginator.ItemCount >= 20) { %>
+						<%= paginator.ToString()%>
+					<% } %>
+					</div>
+				</div>
+            <% } %>
+			</div>
+		</div></div>
+    </div></div>
+	
+	<div id="footer"><div id="footerInner">
+
+			<% if (Request.IsAuthenticated) { %>
+				<ul id="footerMenu">              
+					<li ctrl="Home"><%= Html.ActionLink("Home", "Index", "Home")%></li>
+					<li ctrl="User"><%= Html.ActionLink("Users", "Index", "User")%></li>
+					<li ctrl="Role"><%= Html.ActionLink("Roles", "Index", "Role")%></li>
+					<li ctrl="Location"><%= Html.ActionLink("Locations", "Index", "Location")%></li>
+					<li ctrl="Schedule"><%= Html.ActionLink("Schedules", "Index", "Schedule")%></li>
+					<li ctrl="Parameter"><%= Html.ActionLink("Parameters", "Index", "Parameter")%></li>
+					<li ctrl="Unit"><%= Html.MainMenuLink("Units", "Index", "Unit")%></li>
+					<li ctrl="Item ItemModel ItemMake"><%= Html.ActionLink("Items", "Index", "Item")%></li>
+					<li ctrl="Lab"><%= Html.MainMenuLink("Labs", "Index", "Lab")%></li>
+					<li ctrl="Blackout"><%= Html.MainMenuLink("Blackouts", "Index", "Blackout")%></li>
+					<li ctrl="SlopeOffset"><%= Html.MainMenuLink("Slope/Offsets", "Index", "SlopeOffset")%></li>
+					<li ctrl="WBEAId"><%= Html.MainMenuLink("WBEA Sample ID", "Index", "WBEAId")%></li>
+					<li ctrl="SampleMediaId"><%= Html.MainMenuLink("Sample Media ID", "Index", "SampleMediaId")%></li>
+					<li ctrl="About"><%= Html.ActionLink("About", "About", "Home")%></li>
+				</ul>
+			<% } %>
+
+			<p>Copyright 2009 <a href="http://www.airshedsystems.com" target="_blank">Airshed Systems Inc.</a> All rights reserved. Find a problem? <a href="mailto:cases@airshedsystems.com">Tell us please!</a></p>
+		
+	</div></div>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            //assign the active class to the menu item that matches the current controller
+            var currentAction = '<%= ViewContext.RouteData.Values["action"] %>';
+            var currentController = '<%= ViewContext.RouteData.Values["controller"] %>'; //uses C# to find current controller
+
+            $('li[act],li[ctrl]').each(function() {
+                var item = $(this);
+                if (item.attr('act')) {
+                    var act = item.attr('act').split(' ');
+                    for (var i = 0; i < act.length; i++) {
+                        if (act[i] == currentAction) {
+                            item.addClass('active');
+                            return false;
+                        }
+                    }
+                } else {
+                    var ctrl = item.attr('ctrl').split(' ');
+                    for (var i = 0; i < ctrl.length; i++) {
+                        if (ctrl[i] == currentController) {
+                            item.addClass('active');
+                            return false;
+                        }
+                    }
+                }
+            });
+
+			//-- Table Adjustments --//
+            //add odd/even classes to tables that implement tbody with class of sortable  <%-- src: http://stackoverflow.com/questions/1619603/jquery-odd-even-selectors-for-multiple-elements --%>
+            $('table').each(function() {
+                $(this).find('tr:odd').addClass('odd');
+                $(this).find('tr:even').addClass('even');
+            });			
+			//Taking care of 2 column tables
+			$('table.tableTwoCol tr').each(function() {
+				$(this).find('td').eq(0).addClass('actionCol');
+				$(this).find('td').eq(1).addClass('firstCol');
+			});
+			//Taking care of 3 column tables
+			$('table.tableThreeCol tr').each(function() {
+				$(this).find('td').eq(0).addClass('actionCol');
+				$(this).find('td').eq(1).addClass('firstCol');
+				$(this).find('td').eq(2).addClass('secondCol');
+			});
+
+            //duplicating the bottom pagination to top of the tables
+            //Note: doing this because copying above paginator code puts the paging above the page content... instead of above the table itself
+            if ($("#botPaging").html() != "") {
+                var topPagingHtml = "<div id='topPaging'>" + $("#botPaging").html() + "</div>";
+                $("#actionArea").prepend(topPagingHtml);
+            }
+
+            <%= "page specific jQuery\n" + Html.JQueryCommands() %>  <%-- NOTE: keep this line, it is a multi-line javascript code and is commented out so that Visual Studio will still autoformat --%>
+        });
+    </script>
+    <%-- 
+        NOTES: 
+            obtain action/controller/id through C# by ViewContext.RouteData.Values["controller"].ToString()
+              or ViewContext.Controller.ValueProvider["controller"].RawValue
+    --%>
+</body>
+</html>

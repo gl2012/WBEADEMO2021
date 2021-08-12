@@ -1,0 +1,5 @@
+﻿th.sorted { text-decoration:underline;}
+th.no-sort { }
+th span.text { float: left; cursor: pointer; }
+a.ui-icon-sort-dir { float: left; cursor: pointer; }
+a.ui-sort-order { float: left; cursor: pointer; font-size: 0.75em; }

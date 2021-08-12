@@ -1,0 +1,31 @@
+/*
+	CSS for WBEA Doc-IT
+	IE <= v7 styles
+	Written by Airshed Systems Inc. | www.AirshedSystems.com
+	September 2009
+	
+	Note: * hack used to target IE 6
+-------------------------------------------------------------*/
+
+* html body { background-image: url('images/body-bg-ie6.gif'); }
+* html #main { height: 400px; overflow: visible; }
+#main { overflow: hidden; }
+
+/*/// Header & Login ///*/
+#header #logindisplay { padding-right: 10px; }
+* html #header a#logo { background: url('images/logo-doc-it.gif') no-repeat left bottom; }
+* html #header a#logo2 { background: url('images/logo-sample-it.gif') no-repeat left bottom; }
+
+/*/// Menu ///*/
+.menuItems li ul { clear: both; margin-top: 0; }
+/*
+* html #header .menuItems a.mainlevel { color: #fff; }
+* html #header .menuItems li.active a.mainlevel { color: #325D95; }
+*/
+
+
+/*/// Content Items ///*/
+.generalTable#performDSCtable { width: 50%; }
+
+table.cocTable td { padding-left: 5px !important; }
+.cocPage fieldset { padding-bottom: .8em; }

@@ -1,0 +1,132 @@
+﻿@using WBEADMS.Views
+@using WBEADMS.Helpers
+@using WBEADMS.Views.NoteHelpers
+@model  IEnumerable<WBEADMS.Models.AdvancedNoteSearch_View>
+
+@{
+    ViewBag.Title = "Notes Advanced Search";
+}
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section MainContent
+{
+    <h2 class="title-icon icon-samples">Notes Advanced Search</h2>
+
+    @using (Html.BeginForm("Index", "AdvancedNoteSearch", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {<div class="searchArea forcePrint">
+            <div class="searchField">
+                <label for="location_id">Advanced Search Setting:</label>
+                @Html.DropDownList("note_setting_id", "")
+            </div>
+
+
+            <div class="searchField">
+                <label for="search">Date Created:</label>
+                <span>
+                    @Html.TextBox("date_from", "", new { @readonly = "readonly" })
+                    @Html.ValidationMessage("date_from", "Please Enter date", new { @class = "text-danger" })
+                    to
+                    @Html.TextBox("date_to", "", new { @readonly = "readonly" })
+                    @Html.ValidationMessage("date_to", "Please Enter date", new { @class = "text-danger" })
+                </span>
+            </div>
+            <input type="submit" class="btnSearch" value="Search" />
+            @Html.Hidden("sort", ViewData["sort"])
+            <br><br>
+        </div>
+        <br>
+        <p>
+            <label>Description:</label>
+            <span class="textArea">@Html.TextArea("setting_description")</span>
+        </p>
+        <div id="actionArea">
+
+        </div>
+
+        <!-- Data table -->
+        <table id="sortable-index">
+            <tr>
+                <th style="width:65px;" class="no-sort">Actions</th>
+                <th style="min-width:80px;">Location</th>
+                <th class="no-sort">Parameter</th>
+                <th style="min-width:120px;">Date&nbsp;Created</th>
+                <th style="min-width:120px;">Date&nbsp;Occurred</th>
+                <th>Author</th>
+                <th class="no-sort">Note Body</th>
+            </tr>
+            @if (Model != null)
+            {
+                foreach (var item in Model)
+                {
+                    <tr>
+                        <td class="tableActionLinks">
+                          
+                        </td>
+                        <td>
+                            @Html.ActionLink(item.Location.name, "Details", new { controller = "Location", id = item.Location.location_id })
+                        </td>
+                        <td>
+                           
+                        </td>
+                        <td>
+                            @Html.Encode(item.DateCreated)
+                        </td>
+                        <td>
+                            @Html.Encode(item.DateOccurred)
+                        </td>
+                        <td>
+                            @Html.Encode(item.created_user)
+                        </td>
+                        <td>
+                            @Html.Encode(item.body)
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+
+    }
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#note_setting_id').change(function () {
+                alert($('#note_setting_id').val());
+
+                // var versionsProgress = $("#states-loading-progress");
+                //  versionsProgress.show();
+                $.ajax({
+                    type: "GET",
+                    url: "/AdvancedNoteSearch.aspx/GetDescription",
+                    data: { "stateId": $('#note_setting_id').val() },
+                    datatype: "json",
+                    traditional: true,
+                    success: function (data) {
+                        var txtdescription = "";
+                        var selectedId = $('#note_setting_id').val();
+                        for (var i = 0; i < data.length; i++) {
+                            if (selectedId == data[i].Value) {
+
+                                txtdescription = data[i].Text
+                            }
+                        }
+
+                        $('#setting_description').html(txtdescription);
+
+                    }
+                });
+            });
+                  $("#date_from").datepicker({ dateFormat: "yy-mm-dd" });
+
+                    $("#date_to").datepicker({ dateFormat: "yy-mm-dd" });
+
+        });
+
+  
+
+    </script>
+
+}
+

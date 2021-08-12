@@ -1,0 +1,15 @@
+/*****************************************************************************************
+    Copyright 2013-2014 Wood Buffalo Environmental Asssociation
+    
+    http://wbea.org
+******************************************************************************************/
+
+/* IE 8 Styles */
+.buttonList ul { padding: 1.5em 0 1em 0; }
+
+.searchArea { background: url('images/icons/find.png') no-repeat 0 center; }
+
+fieldset { margin-top: 1em; }
+legend { margin: 0 0 1em 0; padding: .2em .6em; }
+
+table.cocTable td { padding: 0 5px 3px 0; }

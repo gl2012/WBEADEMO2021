@@ -1,0 +1,20 @@
+/*
+	CSS for WBEA Doc-IT
+	IE 8 styles
+	Written by Airshed Systems Inc. | www.AirshedSystems.com
+	September 2009
+-------------------------------------------------------------*/
+
+.buttonList ul { padding: 1.5em 0 1em 0; }
+
+fieldset { margin-top: .9em; }
+legend { margin: 0 0 1em 0; padding: .2em .6em; }
+
+.searchArea { background: url('images/icons/find.png') no-repeat 0 center; }
+
+/*/// COC's ///*/
+table.cocTable { margin-top: -2px; }
+table.cocTable td { padding: 0 10px 3px 0; }
+ul.cocOverview li span { font-size: 0.75em; }
+ul.cocOverview li span#cocOverviewStatus { font-size: 1em; }
+.cocPage .cocSection .cocSectionNav { margin-top: -5px; }

@@ -1,0 +1,146 @@
+/*****************************************************************************************
+    Copyright 2013-2014 Wood Buffalo Environmental Asssociation
+    
+    http://wbea.org
+
+    JQuery Superfish plugin provided by http://plugins.jquery.com/superfish/ (2013 Vesrion)
+******************************************************************************************/
+
+/* SUPERFISH Drop-down Menu Styles */
+
+
+/* Superfish Core Styles 
+-------------------------------------------------------------*/
+.sf-menu, .sf-menu * {
+	margin:			0;
+	padding:		0;
+	list-style:		none;
+}
+.sf-menu {
+	line-height:	1.0;
+}
+.sf-menu ul {
+	position:		absolute;
+	top:			-999em;
+	width:			15em; /* left offset of submenus need to match (see below) */
+}
+.sf-menu ul li {
+	width:			100%;
+}
+.sf-menu li:hover {
+	visibility:		inherit; /* fixes IE7 'sticky bug' */
+}
+.sf-menu li {
+	float:			left;
+	position:		relative;
+	height: 		27px;
+}
+.sf-menu a {
+	display:		block;
+	position:		relative;
+}
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+	left:			0;
+	top:			27px; /* match top ul list item height */
+	z-index:		99;
+}
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul {
+	left:			15em; /* match ul width */
+	top:			0;
+}
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul {
+	top:			-999em;
+}
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul {
+	left:			15em; /* match ul width */
+	top:			0;
+}
+
+
+
+/* Superfish Menu SKIN 
+-------------------------------------------------------------*/
+/*/// Menu Itself ///*/
+.sf-menu { float: left; margin-bottom: 1em; border-left: 1px solid #88ade1; }
+
+/*/// All Links ///*/
+.sf-menu a { border-right: 1px solid #88ade1; line-height: 28px; padding: 0 .4em; text-decoration: none; color: #fff; }
+
+/*/// Mainlevel Links only ///*/
+.sf-menu a.mainlevel { color: #fff; font: bold 1.29em/27px tahoma,verdana,helvetica,sans-serif; }
+.sf-menu a.mainlevel:hover { background-color: transparent !important; color: #fff !important;  }
+.sf-menu li.active a.mainlevel { background-image: none; background-color: #bacee8; color: #325d95; }
+
+/*/// Sublevel Links ///*/
+.sf-menu li li a { border-right: none; color: #fff;  }
+
+/*/// Sub Sublevel Links ///*/
+.sf-menu ul ul { border: 1px solid #325d95; }
+.sf-menu ul ul li { background: url('images/jqueryui/ui-bg_diagonals-small_65_d6e2f1_40x40.png') repeat 0 0; }
+.sf-menu ul ul li a { color: #325d95; }
+
+/*/// All Hover Links ///*/
+.sf-menu li li:hover, .sf-menu li li.sfHover, .sf-menu a:focus, .sf-menu a:hover, .sf-menu a:active {
+	background-color: #bacee8;
+	background-image: none;
+	outline: 0;
+}
+.sf-menu li li:hover a { color: #325d95; }
+.sf-menu li:hover, .sf-menu ul { background: #325d95 url('images/jqueryui/ui-bg_diagonals-small_25_325d95_40x40.png') repeat 0 0; }
+.sf-menu ul { background-position: 1px 0 ; }
+
+
+
+
+/* Arrows 
+-------------------------------------------------------------*/
+.sf-menu a.sf-with-ul {
+	padding-right: 	2.25em;
+	min-width:		1px; /* trigger IE7 hasLayout so spans position accurately */
+}
+.sf-menu a.mainlevel { min-width: 1px; padding-right: 1.5em; }
+.sf-sub-indicator {
+	position:		absolute;
+	display:		block;
+	right:			.5em;
+	top:			1.05em; /* IE6 only */
+	width:			10px;
+	height:			10px;
+	text-indent: 	-999em;
+	overflow:		hidden;
+	background:		url('images/arrows-ffffff.png') no-repeat -10px -100px; /* 8-bit indexed alpha png. IE6 gets solid image only */
+}
+a > .sf-sub-indicator {  /* give all except IE6 the correct values */
+	top:			.8em;
+	background-position: 0 -100px; /* use translucent arrow for modern browsers*/
+}
+
+/* apply hovers to modern browsers */
+a:focus > .sf-sub-indicator,
+a:hover > .sf-sub-indicator,
+a:active > .sf-sub-indicator,
+li:hover > a > .sf-sub-indicator,
+li.sfHover > a > .sf-sub-indicator {
+	background-position: -10px -100px; /* arrow hovers for modern browsers*/
+}
+
+/* point right for anchors in subs */
+.sf-menu ul .sf-sub-indicator { background-position:  -10px 0; }
+.sf-menu ul a > .sf-sub-indicator { background-position:  0 0; }
+/* apply hovers to modern browsers */
+.sf-menu ul a:focus > .sf-sub-indicator,
+.sf-menu ul a:hover > .sf-sub-indicator,
+.sf-menu ul a:active > .sf-sub-indicator,
+.sf-menu ul li:hover > a > .sf-sub-indicator,
+.sf-menu ul li.sfHover > a > .sf-sub-indicator {
+	background-position: -10px 0; /* arrow hovers for modern browsers*/
+}
+

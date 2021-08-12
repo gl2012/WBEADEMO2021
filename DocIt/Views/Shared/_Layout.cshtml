@@ -1,0 +1,494 @@
+﻿@using System.Web;
+@using WBEADMS.Helpers.CheckBoxNAHelper;
+@using System.Web.Mvc.Html;
+@using WBEADMS.Models;
+@using System.Web.Optimization;
+@using WBEADMS.Views
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width">
+    <title>@ViewBag.Title-DocIT(Test Version)</title>
+    <style>
+        .labelFilter {
+            color: white;
+            padding: 12px;
+            font-family: bold 1em tahoma,verdana,helvetica,sans-serif;
+            font-size: 10pt;
+        }
+
+        .success {
+            background-color: #4CAF50;
+        }
+        /* Green */
+        .info {
+            background-color: #2196F3;
+        }
+        /* Blue */
+        .warning {
+            background-color: #ff9800;
+        }
+        /* Orange */
+        .danger {
+            background-color: #f44336;
+        }
+        /* Red */
+        .other {
+            background-color: #e7e7e7;
+            color: black;
+        }
+        /* Gray */
+
+        .labelFilter1 {
+            color: white;
+            padding: 1px;
+            font-family: tahoma,verdana,helvetica,sans-serif;
+            font-size: 9pt;
+        }
+
+        .success {
+            background-color: #4CAF50;
+        }
+        /* Green */
+        .info {
+            background-color: #2196F3;
+        }
+        /* Blue */
+        .warning {
+            background-color: #ff9800;
+        }
+        /* Orange */
+        .danger {
+            background-color: #f44336;
+        }
+        /* Red */
+        .other {
+            background-color: #e7e7e7;
+            color: black;
+        }
+        /* Gray */
+
+        #divPanel {
+            background-color: var(--main-bg-color);
+            max-height: 300px;
+            max-width: 250px;
+            min-width: 150px;
+            padding: 5px;
+            resize: both;
+            overflow: auto;
+            border: inset;
+            border-width: 1px;
+            border-color: darkgrey;
+        }
+
+        #divPanel1 {
+            background-color: var(--main-bg-color);
+            max-height: 300px;
+            max-width: 300px;
+            min-width: 150px;
+            padding: 5px;
+            resize: both;
+            overflow: auto;
+            border: inset;
+            border-width: 1px;
+            border-color: darkgrey;
+        }
+    </style>
+
+    @Styles.Render("~/Content/Site.css")
+    @Scripts.Render("~/Scripts/jquery-1.9.1.js")
+    @if (Html.CheckBoxNA())
+    {
+        @Scripts.Render("~/Scripts/jquery.checkbox.min.js")
+    }
+    @Scripts.Render("~/Scripts/jquery.superfish.js")
+    <script>
+        $(document).ready(function () {
+            $('ul.sf-menu').superfish({							// Main Menu Drop-downs::
+                delay: 70,								// one second delay on mouseout
+                animation: { opacity: 'show', height: 'show' },	// fade-in and slide-down animation
+                speed: 150,								// faster animation speed
+                autoArrows: true,								// generation of arrow mark-up
+                disableHI: true,								// set to true to disable hoverIntent detection
+                dropShadows: false								// disable drop shadows
+            });
+        });
+    </script>
+    @Scripts.Render("~/Scripts/jquery-ui-1.10.3.custom.min.js")
+    @Scripts.Render("~/Scripts/jquery-migrate-1.2.1.min.js")
+    <!-- <script type="text/javascript" src="<%//= Url.Content("~/Scripts/jquery.tablesorter.min.js") %>"></script> -->
+    @Scripts.Render("~/Scripts/disableTextSelect.js")
+    @Scripts.Render("~/Scripts/table-sortable.js")
+    @Scripts.Render("~/Scripts/setUrlParam.js")
+
+    @Styles.Render("~/Content/jquery-ui-1.10.3.custom.css")
+    @Styles.Render("~/Content/jquery.checkbox.css")
+    @Styles.Render("~/Content/jquery.safari-checkbox.css")
+    @Styles.Render("~/Content/Calendar.css")
+    @Styles.Render("~/Content/table-sortable.css")
+    <link href="~/Content/print.css" rel="stylesheet" type="text/css" media="print" />
+    @Scripts.Render(" ~/Scripts/wmd-helper.js")
+</head>
+@{
+    string controller = ViewContext.RouteData.Values["controller"].ToString();
+    var controllersInSampleIt = new System.Collections.Generic.List
+    <string>
+    () {
+    "Sample", "ChainOfCustody", "SampleResult", "Batch", "WBEAId", "SampleMediaId"
+    };
+    bool isSampleIt = controllersInSampleIt.Contains(controller);
+}
+<body>
+    <div class="page">
+        <div class="pageInner clearfix">
+            <a name="top"></a>
+            <div id="header">
+                <div id="headerInner">
+                    <div id="title">
+                        @if (isSampleIt)
+                        {
+                            <a href="/" title="Home" id="logo2"><span> Sample-IT - WBEA Meta Database</span></a>
+                        }
+                        else
+                        {
+                            <a href="/" title="Home" id="logo"><span> DOC-IT  - WBEA Meta Database</span></a>
+                        }
+                    </div>
+                    <div style="color:white; font-size:xx-small; float:left; padding-left:10px; padding-top:15px">V2.1.1</div>  <div style="color:red; font-size:small;font-weight:bold; float:left; padding-left:10px; padding-top:15px"> Test Version</div>
+                    <div id="logindisplay">
+                        @Html.Partial("LogOnUserControl")
+                    </div>
+                    <div id="menucontainer">
+                        @{ if (Request.IsAuthenticated)
+                            {
+                                <ul id="menu" class="menuItems sf-menu">
+                                    <li ctrl="Home Location LocationImage Item ItemMake ItemModel">
+                                        @Html.Raw(Html.MainMenuLink("Home", "Index", "Home"))
+                                        <ul>
+                                            <li>@Html.ActionLink("List All Items", "Index", "Item") </li>
+                                            <li>@Html.ActionLink("Create New Item", "Create", "Item")</li>
+                                            <li class="flyout">
+                                                @Html.ActionLink("Item Models", "Index", "ItemModel")
+                                                <ul>
+                                                    <li>@Html.ActionLink("List All Models", "Index", "ItemModel") </li>
+                                                    <li>@Html.ActionLink("Create New Model", "Create", "ItemModel") </li>
+                                                </ul>
+                                            </li>
+                                            <li class="flyout">
+                                                @Html.ActionLink("Item Makes", "Index", "ItemMake")
+                                                <ul>
+                                                    <li>@Html.ActionLink("List All Makes", "Index", "ItemMake")</li>
+                                                    <li>@Html.ActionLink("Create New Make", "Create", "ItemMake") </li>
+                                                </ul>
+                                            </li>
+                                            <li>@Html.ActionLink("Items History", "ItemsHistory", "Item") </li>
+
+                                            <li>@Html.ActionLink("List All Locations", "Index", "Location") </li>
+                                            <li>@Html.ActionLink("Create New Location", "Create", "Location") </li>
+                                            <li>@Html.ActionLink("Audit Log", "Log", "Audit") </li>
+                                        </ul>
+                                    </li>
+                                    <li ctrl="DailySystemCheck">
+                                        @Html.Raw(Html.MainMenuLink("DSCs", "Index", "DailySystemCheck"))
+                                        <ul>
+                                            <li>@Html.ActionLink("Overview", "Index", "DailySystemCheck") </li>
+                                            <li>@Html.ActionLink("Perform DSC", "SelectDSCLocation", "DailySystemCheck") </li>
+                                        </ul>
+                                    </li>
+                                    <li ctrl="Note NoteSetting">
+                                        @Html.Raw(Html.MainMenuLink("Notes", "Index", "Note"))
+                                        <ul>
+                                            <li>@Html.ActionLink("List Notes", "Index", "Note") </li>
+                                            <li>@Html.ActionLink("Create New Note", "Create", "Note") </li>
+                                            <li>@Html.ActionLink("Note Advanced Search Settings", "Index", "NoteSetting") </li>
+                                            <li>@Html.ActionLink("Note Advanced Search ", "Index1", "advancedNoteSearch") </li>
+                                            <li>@Html.ActionLink("List Notes(MySQL)", "ListNotesMysql", "Note") </li>
+                                        </ul>
+                                    </li>
+                                    <li act="Calendar" ctrl="Schedule">
+                                         @Html.Raw(Html.MainMenuLink("Schedules", "Calendar", "Schedule"))
+                                        <ul>
+                                            <li>@Html.ActionLink("List All Schedules", "Index", "Schedule") </li>
+                                            <li>@Html.ActionLink("View Calendar", "Calendar", "Schedule") </li>
+                                            <li>@Html.ActionLink("Create New Schedule", "Create", "Schedule") </li>
+                                        </ul>
+                                    </li>
+                                    <li ctrl="Sample">
+                                        @Html.Raw(Html.MainMenuLink("Samples", "Index", "Sample"))
+                                        <ul>
+                                            <li>@Html.ActionLink("List All Samples", "Index", "Sample") </li>
+                                            <li>@Html.ActionLink("Create New Sample", "Create", "Sample") </li>
+                                            <li class="flyout">
+                                                @Html.ActionLink("Monthly Export", "", "")
+                                                <ul>
+                                                    <li>@Html.ActionLink("PM Data Export", "Index", "PMData") </li>
+                                                    <li>@Html.ActionLink("ECOC Data Export", "Index", "ECOCData") </li>
+                                                </ul>
+                                            </li>
+                                            <li>@Html.ActionLink("List Orphaned Samples", "OrphanedSamples", "Sample")</li>
+                                            <li>@Html.ActionLink("List Samples(Mysql)", "indexmysql", "Sample")</li>
+                                        </ul>
+                                    </li>
+                                    <li ctrl="ChainOfCustody">
+                                        @Html.Raw(Html.MainMenuLink("Chain of Custody", "Index", "ChainOfCustody"))
+                                        <ul>
+                                            <li>@Html.ActionLink("List All C of Cs", "Index", "ChainOfCustody") </li>
+                                            <li>@Html.ActionLink("Create New C of C", "Create", "ChainOfCustody") </li>
+                                            <li>@Html.ActionLink("Batch Shipping", "BatchShipping", "ChainOfCustody") </li>
+                                            <li>@Html.ActionLink("Batch Import Passive Air Sampling", "BatchImportCOC", "ChainOfCustody") </li>
+                                            <li class="flyout">
+                                                @Html.ActionLink("General Export", "", "")
+                                                <ul>
+                                                    <li>@Html.ActionLink("Batch COC Export", "BatchCOCExport", "ChainOfCustody")</li>
+
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li ctrl="SampleResult Batch">
+                                        @Html.Raw(Html.MainMenuLink("Results", "Index", "SampleResult"))
+
+                                        <ul>
+                                            <li>@Html.ActionLink("List Sample results", "Index", "SampleResult") </li>
+                                            <li>@Html.ActionLink("List Batches", "Index", "Batch") </li>
+                                        </ul>
+                                    </li>
+                                    <li ctrl="WBEAId SampleMediaId">
+                                        @Html.Raw(Html.MainMenuLink("Passives", "Index", "WBEAId"))
+
+                                        <ul>
+                                            <li>@Html.ActionLink("WBEA Sample ID", "Index", "WBEAId")</li>
+                                            <li>@Html.ActionLink("Sample Media ID", "Index", "SampleMediaId")</li>
+                                            <li>@Html.ActionLink("Calendar", "Calendar", new { controller = "Schedule", sample_type_id = SampleType.PASS.id })</li>
+                                            <li>@Html.ActionLink("Schedule", "Index", new { controller = "Schedule", sample_type_id = SampleType.PASS.id })</li>
+                                            <li>@Html.ActionLink("Samples", "Index", new { controller = "Sample", sample_type_id = SampleType.PASS.id })</li>
+                                            <li>@Html.ActionLink("Chain of Custody", "Index", new { controller = "ChainOfCustody", sample_type_id = SampleType.PASS.id })</li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            } }
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="main">
+                <div id="mainInner">
+                    @RenderSection("AboveContent", required: false)
+
+
+                    @if (TempData["notice"] != null || ViewData["notice"] != null)
+                    {
+                        <div class="notice"> @TempData["notice"] @ViewData["notice"] </div>
+                    }
+
+                    @RenderSection("MainContent", required: false)
+
+                    <div id="botPaging">
+                        @if (ViewData["pagination"] != null)
+                        {
+                            <div class="paging">
+                                @{WBEADMS.Paginator paginator = ((WBEADMS.Paginator)ViewData["pagination"]);}
+
+
+                                <div class="pagination">
+                                    <span class="pagingCount">@paginator.ItemCount  Items</span>
+                                    @if (paginator.ItemCount >= 20)
+                                    {
+                                        @Html.Raw(@paginator)
+                                    }
+                                </div>
+
+                            </div>
+                        }
+                    </div>
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="footer">
+        <div id="footerInner">
+            ;
+
+            @if (Request.IsAuthenticated)
+            {
+                <ul id="footerMenu">
+                    <li ctrl="Home">@Html.ActionLink("Home", "Index", "Home")</li>
+                    <li ctrl="DailySystemCheck">@Html.ActionLink("DSCs", "Index", "DailySystemCheck")</li>
+                    <li ctrl="Note">@Html.ActionLink("Notes", "Index", "Note")</li>
+                    <li ctrl="Item ItemModel ItemMake">@Html.ActionLink("Items", "Index", "Item")</li>
+                    <li ctrl="Location LocationImage">@Html.ActionLink("Locations", "Index", "Location")</li>
+                    <li act="Calendar">@Html.ActionLink("Calendar", "Calendar", "Schedule")</li>
+                    <li ctrl="Schedule">@Html.ActionLink("Schedules", "Index", "Schedule")</li>
+                    <li ctrl="Sample">@Html.ActionLink("Sample", "Index", "Sample")</li>
+                    <li ctrl="ChainOfCustody">@Html.ActionLink("Chain Of Custody", "Index", "ChainOfCustody")</li>
+                    <li ctrl="SampleResult Batch"> @Html.Raw(Html.MainMenuLink("Results", "Index", "SampleResult"))</li>
+                    <li ctrl="WBEAId"> @Html.Raw(Html.MainMenuLink("WBEA Sample ID", "Index", "WBEAId"))</li>
+                    <li act="About">@Html.ActionLink("About", "About", "Home")</li>
+                </ul>
+            }
+
+            <p>
+                Copyright
+                <script>document.write(new Date().getFullYear());</script>  <a href="http://wbea.org" target="_blank">Wood Buffalo Environmental Association All rights reserved.</a>
+            </p>
+
+        </div>
+    </div>
+
+
+
+
+
+    <script type="text/javascript">
+
+    $(document).ready(function () {
+        //assign the active class to the menu item that matches the current controller
+        var currentAction = '@ViewContext.RouteData.Values["action"]';
+        var currentController = '@ViewContext.RouteData.Values["controller"]'; //uses C# to find current controller
+
+        $('li[act],li[ctrl]').each(function () {
+            var item = $(this);
+            if (item.attr('act')) {
+                var act = item.attr('act').split(' ');
+                for (var i = 0; i < act.length; i++) {
+                    if (act[i] == currentAction) {
+                        item.addClass('active');
+                        return false;
+                    }
+                }
+            }
+
+            if (item.attr('ctrl')) {
+                var ctrl = item.attr('ctrl').split(' ');
+                for (var i = 0; i < ctrl.length; i++) {
+                    if (ctrl[i] == currentController) {
+                        item.addClass('active');
+                        return false;
+                    }
+                }
+            }
+        });
+
+        //-- Table Adjustments --//
+        //add odd/even classes to tables that implement tbody with class of sortable  <%-- src: http://stackoverflow.com/questions/1619603/jquery-odd-even-selectors-for-multiple-elements --%>
+        $('table').each(function () {
+            $(this).find('tr:odd').addClass('odd');
+            $(this).find('tr:even').addClass('even');
+        });
+        //Taking care of 2 column tables
+        $('table.tableTwoCol tr').each(function () {
+            $(this).find('td').eq(0).addClass('actionCol');
+            $(this).find('td').eq(1).addClass('firstCol');
+        });
+        //Taking care of 3 column tables
+        $('table.tableThreeCol tr').each(function () {
+            $(this).find('td').eq(0).addClass('actionCol');
+            $(this).find('td').eq(1).addClass('firstCol');
+            $(this).find('td').eq(2).addClass('secondCol');
+        });
+
+        //duplicating the bottom pagination to top of the tables
+        //Note: doing this because copying above paginator code puts the paging above the page content... instead of above the table itself
+        if ($("#botPaging").html() != "") {
+            var topPagingHtml = "<div id='topPaging'>" + $("#botPaging").html() + "</div>";
+            $("#actionArea").prepend(topPagingHtml);
+        }
+
+        //  "page specific jQuery\n" + Html.JQueryCommands()
+
+        /* jQuery checkbox plugin TODO: move this section to external js file */
+        if ($(document).checkbox) {
+            $('input:checkbox.na-checkbox').checkbox({ cls: 'jquery-checkbox', empty: '@Url.Content("~/Content/images/jquerycheckbox/empty.png") ' });
+        }
+
+        var jQueryCheckboxEnabled = $(document).checkbox;
+        $('input:checkbox.na-checkbox').each(function () {
+            var cb = $(this);
+            var name = cb.attr('name').substr(3);
+            var field = $('[name=' + name + ']');
+            var fieldUnit = $('[name=' + name + '_unit],[name=' + name + '_date],[name=' + name + '_hour],[name=' + name + '_mins]');
+            if ((jQueryCheckboxEnabled && !cb.attr('checked')) || (!jQueryCheckboxEnabled && cb.attr('checked'))) {
+                field.attr('disabled', 'disabled').attr('na-old_value', '').val('N/A');
+                fieldUnit.attr('disabled', 'disabled').attr('na-old_value', '').val('');
+            } else {
+                field.removeAttr('disabled').attr('na-old_value', '');
+                fieldUnit.removeAttr('disabled').attr('na-old_value', '');
+            }
+        });
+
+        $('input:checkbox.na-checkbox').click(function () {
+            var cb = $(this);
+            var name = cb.attr('name').substr(3);
+            var field = $('[name=' + name + ']');
+            var fieldUnit = $('[name=' + name + '_unit],[name=' + name + '_date],[name=' + name + '_hour],[name=' + name + '_mins]');
+            var checked = cb.attr('checked');
+            var jQueryCheckboxEnabled = $(document).checkbox;
+            if ((jQueryCheckboxEnabled && checked) || (!jQueryCheckboxEnabled && checked)) { // NOTE: if jQuery Checkbox plugin is commented out or added, this logic gets reversed since the checkbox change is executed late.
+                field.attr('na-old_value', field.val());
+                field.attr('disabled', 'disabled').val('N/A');
+
+                fieldUnit.each(function () {
+                    $(this).attr('na-old_value', $(this).val());
+                });
+                fieldUnit.attr('disabled', 'disabled').val('');
+            } else {
+                field.removeAttr('disabled').val(field.attr('na-old_value'));
+                fieldUnit.removeAttr('disabled');
+                fieldUnit.each(function () {
+                    $(this).val($(this).attr('na-old_value'));
+                });
+            }
+        });
+          $("#date_from").datepicker({
+              dateFormat: "yy-mm-dd",
+              changeMonth: true,
+              changeYear: true, yearRange: "-30:+10"
+          });
+        $("#date_to").datepicker({ dateFormat: "yy-mm-dd",
+              changeMonth: true,
+            changeYear: true, yearRange: "-30:+10"
+        });
+        $(".datepicker").attr("autocomplete", "off");
+    });
+
+
+        function checkboxFunc() {
+
+
+            var checkboxes = document.getElementsByName("parameter_list");
+            var select_all = document.getElementById("select_all");
+        // alert("test");
+        //select all checkboxes
+        select_all.addEventListener("change", function (e) {
+            for (i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].checked = select_all.checked;
+            }
+        });
+
+
+        for (var i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].addEventListener('change', function (e) { //".checkbox" change
+                //uncheck "select all", if one of the listed checkbox item is unchecked
+                if (this.checked == false) {
+                    select_all.checked = false;
+                }
+                //check "select all" if all checkbox items are checked
+                if (document.querySelectorAll('.checkbox:checked').length == checkboxes.length) {
+                    select_all.checked = true;
+                }
+            });
+        }
+
+    }
+
+
+    </script>
+
+</body>
+
+</html>

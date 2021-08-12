@@ -1,0 +1,3458 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<FxCopProject Version="1.36" Name="WMD">
+ <ProjectOptions>
+  <SharedProject>True</SharedProject>
+  <Stylesheet Apply="False">c:\program files\microsoft fxcop 1.36\Xml\FxCopReport.xsl</Stylesheet>
+  <SaveMessages>
+   <Project Status="Active, Excluded" NewOnly="False" />
+   <Report Status="Active" NewOnly="False" />
+  </SaveMessages>
+  <ProjectFile Compress="True" DefaultTargetCheck="True" DefaultRuleCheck="True" SaveByRuleGroup="" Deterministic="True" />
+  <EnableMultithreadedLoad>True</EnableMultithreadedLoad>
+  <EnableMultithreadedAnalysis>True</EnableMultithreadedAnalysis>
+  <SourceLookup>True</SourceLookup>
+  <AnalysisExceptionsThreshold>10</AnalysisExceptionsThreshold>
+  <RuleExceptionsThreshold>1</RuleExceptionsThreshold>
+  <Spelling Locale="en-US" />
+  <OverrideRuleVisibilities>False</OverrideRuleVisibilities>
+  <CustomDictionaries SearchFxCopDir="True" SearchUserProfile="True" SearchProjectDir="True" />
+  <SearchGlobalAssemblyCache>False</SearchGlobalAssemblyCache>
+  <DeadlockDetectionTimeout>120</DeadlockDetectionTimeout>
+  <IgnoreGeneratedCode>False</IgnoreGeneratedCode>
+ </ProjectOptions>
+ <Targets>
+  <Target Name="$(ProjectDir)/Admin/bin/Core.dll" Analyze="True" AnalyzeAllChildren="False">
+   <Modules AnalyzeAllChildren="False">
+    <Module Name="core.dll" Analyze="True" AnalyzeAllChildren="False">
+     <Namespaces AnalyzeAllChildren="False">
+      <Namespace Name="" Analyze="True" AnalyzeAllChildren="True" />
+      <Namespace Name="WMD" Analyze="True" AnalyzeAllChildren="True" />
+      <Namespace Name="WMD.Controllers.LocationExtensions" Analyze="True" AnalyzeAllChildren="True" />
+      <Namespace Name="WMD.Models" Analyze="True" AnalyzeAllChildren="False">
+       <Types AnalyzeAllChildren="False">
+        <Type Name="BaseModel" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="ChainOfCustody" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="Interval" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="IntervalType" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="Item" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="ItemHistory" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="ItemMake" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="ItemModel" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="Location" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="LocationImage" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="ModelException" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="Note" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="Note+ParentType" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="Parameter" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="Policy" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="Role" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="SampleType" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="Schedule" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="User" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="ValidationError" Analyze="True" AnalyzeAllChildren="True" />
+        <Type Name="Validator" Analyze="True" AnalyzeAllChildren="True" />
+       </Types>
+      </Namespace>
+      <Namespace Name="WMD.Views" Analyze="True" AnalyzeAllChildren="True" />
+      <Namespace Name="WMD.Views.NoteHelpers" Analyze="True" AnalyzeAllChildren="True" />
+     </Namespaces>
+     <Resources AnalyzeAllChildren="True" />
+    </Module>
+   </Modules>
+  </Target>
+  <Target Name="$(ProjectDir)/Admin/bin/System.Web.Abstractions.dll" Analyze="False" AnalyzeAllChildren="False" />
+  <Target Name="$(ProjectDir)/Admin/bin/System.Web.Mvc.dll" Analyze="False" AnalyzeAllChildren="False" />
+  <Target Name="$(ProjectDir)/Admin/bin/System.Web.Routing.dll" Analyze="False" AnalyzeAllChildren="False" />
+  <Target Name="$(ProjectDir)/Admin/bin/WMD.dll" Analyze="True" AnalyzeAllChildren="True" />
+  <Target Name="$(ProjectDir)/DocIt/bin/DocIt.dll" Analyze="True" AnalyzeAllChildren="True" />
+ </Targets>
+ <Rules>
+  <RuleFiles>
+   <RuleFile Name="$(FxCopDir)\Rules\DesignRules.dll" Enabled="True" AllRulesEnabled="False">
+    <Rule Name="AbstractTypesShouldNotHaveConstructors" Enabled="True" />
+    <Rule Name="AssembliesShouldHaveValidStrongNames" Enabled="True" />
+    <Rule Name="AvoidEmptyInterfaces" Enabled="True" />
+    <Rule Name="AvoidExcessiveParametersOnGenericTypes" Enabled="True" />
+    <Rule Name="AvoidNamespacesWithFewTypes" Enabled="True" />
+    <Rule Name="AvoidOutParameters" Enabled="True" />
+    <Rule Name="CollectionsShouldImplementGenericInterface" Enabled="True" />
+    <Rule Name="ConsiderPassingBaseTypesAsParameters" Enabled="True" />
+    <Rule Name="DeclareEventHandlersCorrectly" Enabled="True" />
+    <Rule Name="DeclareTypesInNamespaces" Enabled="True" />
+    <Rule Name="DefaultParametersShouldNotBeUsed" Enabled="True" />
+    <Rule Name="DefineAccessorsForAttributeArguments" Enabled="True" />
+    <Rule Name="DoNotCatchGeneralExceptionTypes" Enabled="True" />
+    <Rule Name="DoNotDeclareProtectedMembersInSealedTypes" Enabled="True" />
+    <Rule Name="DoNotDeclareStaticMembersOnGenericTypes" Enabled="True" />
+    <Rule Name="DoNotDeclareVirtualMembersInSealedTypes" Enabled="True" />
+    <Rule Name="DoNotDeclareVisibleInstanceFields" Enabled="True" />
+    <Rule Name="DoNotHideBaseClassMethods" Enabled="True" />
+    <Rule Name="DoNotNestGenericTypesInMemberSignatures" Enabled="True" />
+    <Rule Name="DoNotOverloadOperatorEqualsOnReferenceTypes" Enabled="True" />
+    <Rule Name="DoNotPassTypesByReference" Enabled="True" />
+    <Rule Name="DoNotRaiseExceptionsInUnexpectedLocations" Enabled="True" />
+    <Rule Name="EnumeratorsShouldBeStronglyTyped" Enabled="True" />
+    <Rule Name="EnumsShouldHaveZeroValue" Enabled="True" />
+    <Rule Name="EnumStorageShouldBeInt32" Enabled="True" />
+    <Rule Name="ExceptionsShouldBePublic" Enabled="True" />
+    <Rule Name="GenericMethodsShouldProvideTypeParameter" Enabled="True" />
+    <Rule Name="ICollectionImplementationsHaveStronglyTypedMembers" Enabled="True" />
+    <Rule Name="ImplementIDisposableCorrectly" Enabled="True" />
+    <Rule Name="ImplementStandardExceptionConstructors" Enabled="True" />
+    <Rule Name="IndexersShouldNotBeMultidimensional" Enabled="True" />
+    <Rule Name="InterfaceMethodsShouldBeCallableByChildTypes" Enabled="True" />
+    <Rule Name="ListsAreStronglyTyped" Enabled="True" />
+    <Rule Name="MarkAssembliesWithAssemblyVersion" Enabled="True" />
+    <Rule Name="MarkAssembliesWithClsCompliant" Enabled="True" />
+    <Rule Name="MarkAssembliesWithComVisible" Enabled="True" />
+    <Rule Name="MarkAttributesWithAttributeUsage" Enabled="True" />
+    <Rule Name="MarkEnumsWithFlags" Enabled="True" />
+    <Rule Name="MembersShouldNotExposeCertainConcreteTypes" Enabled="True" />
+    <Rule Name="MovePInvokesToNativeMethodsClass" Enabled="True" />
+    <Rule Name="NestedTypesShouldNotBeVisible" Enabled="True" />
+    <Rule Name="OverloadOperatorEqualsOnOverloadingAddAndSubtract" Enabled="True" />
+    <Rule Name="OverrideMethodsOnComparableTypes" Enabled="True" />
+    <Rule Name="PropertiesShouldNotBeWriteOnly" Enabled="True" />
+    <Rule Name="ProvideObsoleteAttributeMessage" Enabled="True" />
+    <Rule Name="ReplaceRepetitiveArgumentsWithParamsArray" Enabled="True" />
+    <Rule Name="StaticHolderTypesShouldBeSealed" Enabled="True" />
+    <Rule Name="StaticHolderTypesShouldNotHaveConstructors" Enabled="True" />
+    <Rule Name="StringUriOverloadsCallSystemUriOverloads" Enabled="True" />
+    <Rule Name="TypesShouldNotExtendCertainBaseTypes" Enabled="True" />
+    <Rule Name="TypesThatOwnDisposableFieldsShouldBeDisposable" Enabled="True" />
+    <Rule Name="TypesThatOwnNativeResourcesShouldBeDisposable" Enabled="True" />
+    <Rule Name="UriPropertiesShouldNotBeStrings" Enabled="True" />
+    <Rule Name="UriReturnValuesShouldNotBeStrings" Enabled="True" />
+    <Rule Name="UseEventsWhereAppropriate" Enabled="True" />
+    <Rule Name="UseGenericEventHandlerInstances" Enabled="True" />
+    <Rule Name="UseGenericsWhereAppropriate" Enabled="True" />
+    <Rule Name="UseIntegralOrStringArgumentForIndexers" Enabled="True" />
+    <Rule Name="UsePropertiesWhereAppropriate" Enabled="True" />
+   </RuleFile>
+   <RuleFile Name="$(FxCopDir)\Rules\GlobalizationRules.dll" Enabled="False" AllRulesEnabled="False" />
+   <RuleFile Name="$(FxCopDir)\Rules\InteroperabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\MobilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\NamingRules.dll" Enabled="True" AllRulesEnabled="False">
+    <Rule Name="CompoundWordsShouldBeCasedCorrectly" Enabled="True" />
+    <Rule Name="DoNotNameEnumValuesReserved" Enabled="True" />
+    <Rule Name="DoNotPrefixEnumValuesWithTypeName" Enabled="True" />
+    <Rule Name="EventsShouldNotHaveBeforeOrAfterPrefix" Enabled="True" />
+    <Rule Name="FlagsEnumsShouldHavePluralNames" Enabled="True" />
+    <Rule Name="IdentifiersShouldBeSpelledCorrectly" Enabled="True" />
+    <Rule Name="IdentifiersShouldDifferByMoreThanCase" Enabled="True" />
+    <Rule Name="IdentifiersShouldHaveCorrectPrefix" Enabled="True" />
+    <Rule Name="IdentifiersShouldHaveCorrectSuffix" Enabled="True" />
+    <Rule Name="IdentifiersShouldNotHaveIncorrectPrefix" Enabled="True" />
+    <Rule Name="IdentifiersShouldNotHaveIncorrectSuffix" Enabled="True" />
+    <Rule Name="IdentifiersShouldNotMatchKeywords" Enabled="True" />
+    <Rule Name="OnlyFlagsEnumsShouldHavePluralNames" Enabled="True" />
+    <Rule Name="ParameterNamesShouldMatchBaseDeclaration" Enabled="True" />
+    <Rule Name="ParameterNamesShouldNotMatchMemberNames" Enabled="True" />
+    <Rule Name="PropertyNamesShouldNotMatchGetMethods" Enabled="True" />
+    <Rule Name="ResourceStringCompoundWordsShouldBeCasedCorrectly" Enabled="True" />
+    <Rule Name="ResourceStringsShouldBeSpelledCorrectly" Enabled="True" />
+    <Rule Name="TypeNamesShouldNotMatchNamespaces" Enabled="True" />
+    <Rule Name="UsePreferredTerms" Enabled="True" />
+   </RuleFile>
+   <RuleFile Name="$(FxCopDir)\Rules\PerformanceRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\PortabilityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\SecurityRules.dll" Enabled="True" AllRulesEnabled="True" />
+   <RuleFile Name="$(FxCopDir)\Rules\UsageRules.dll" Enabled="True" AllRulesEnabled="True" />
+  </RuleFiles>
+  <Groups />
+  <Settings />
+ </Rules>
+ <FxCopReport Version="1.36">
+  <Namespaces>
+   <Namespace Name="DocIt">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2009-08-18 15:28:40Z">
+      <Issue>
+       <Item>DocIt</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="WMD.Controllers.LocationExtensions">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Status="Excluded" Created="2009-08-17 15:08:19Z">
+      <Issue>
+       <Item>WMD.Controllers.LocationExtensions</Item>
+      </Issue>
+      <Notes>
+       <User Name="James">
+        <Note Id="44" />
+       </User>
+      </Notes>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="WMD.DocIt">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2009-08-18 15:28:40Z">
+      <Issue>
+       <Item>WMD.DocIt</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="WMD.Views">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Created="2009-08-17 15:08:19Z">
+      <Issue>
+       <Item>WMD.Views</Item>
+      </Issue>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="WMD.Views.CalendarHelpers">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Status="Excluded" Created="2009-08-18 21:56:48Z">
+      <Issue>
+       <Item>WMD.Views.CalendarHelpers</Item>
+      </Issue>
+      <Notes>
+       <User Name="James">
+        <Note Id="44" />
+       </User>
+      </Notes>
+     </Message>
+    </Messages>
+   </Namespace>
+   <Namespace Name="WMD.Views.NoteHelpers">
+    <Messages>
+     <Message TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020" Status="Excluded" Created="2009-08-17 15:08:19Z">
+      <Issue>
+       <Item>WMD.Views.NoteHelpers</Item>
+      </Issue>
+      <Notes>
+       <User Name="James">
+        <Note Id="44" />
+       </User>
+      </Notes>
+     </Message>
+    </Messages>
+   </Namespace>
+  </Namespaces>
+  <Targets>
+   <Target Name="$(ProjectDir)/Admin/bin/Core.dll">
+    <Modules>
+     <Module Name="core.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2009-08-17 15:08:19Z">
+        <Issue Name="NoStrongName">
+         <Item>'Core.dll'</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Created="2009-08-17 15:08:19Z">
+        <Issue>
+         <Item>'Core.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="WMD">
+        <Types>
+         <Type Name="Authentication">
+          <Messages>
+           <Message TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724" Created="2009-08-17 15:08:19Z">
+            <Issue Name="System">
+             <Item>'Authentication'</Item>
+             <Item>System.Security.Authentication</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#CreateUser(System.String,System.String,System.String)">
+            <Messages>
+             <Message Id="email" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'email'</Item>
+               <Item>'Authentication.CreateUser(string, string, string)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="21" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="password" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'password'</Item>
+               <Item>'Authentication.CreateUser(string, string, string)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="21" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="userName" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'userName'</Item>
+               <Item>'Authentication.CreateUser(string, string, string)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="21" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ControllersCommon">
+          <Members>
+           <Member Name="#AddPagination(System.Web.Mvc.Controller,System.String,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'controller'</Item>
+               <Item>'ControllersCommon.AddPagination(this Controller, string, int, int, int, int)'</Item>
+               <Item>'Controller'</Item>
+               <Item>'ControllerBase'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="7" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#AddTempNotice(System.Web.Mvc.Controller,System.String)">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'controller'</Item>
+               <Item>'ControllersCommon.AddTempNotice(this Controller, string)'</Item>
+               <Item>'Controller'</Item>
+               <Item>'ControllerBase'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="6" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#AddViewNotice(System.Web.Mvc.Controller,System.String)">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'controller'</Item>
+               <Item>'ControllersCommon.AddViewNotice(this Controller, string)'</Item>
+               <Item>'Controller'</Item>
+               <Item>'ControllerBase'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="6" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetPaginatedListOrAddNotice`1(System.Web.Mvc.Controller,System.Nullable`1&lt;System.Int32&gt;,System.Int32)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'ControllersCommon.GetPaginatedListOrAddNotice&lt;TModel&gt;(this Controller, int?, int)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="28" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetPaginatedListOrAddNotice`1(System.Web.Mvc.Controller,System.Nullable`1&lt;System.Int32&gt;,System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'ControllersCommon.GetPaginatedListOrAddNotice&lt;TModel&gt;(this Controller, int?, int, object)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="28" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetPaginatedListOrAddNotice`1(System.Web.Mvc.Controller,System.String,System.Nullable`1&lt;System.Int32&gt;,System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'ControllersCommon.GetPaginatedListOrAddNotice&lt;TModel&gt;(this Controller, string, int?, int, object)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="28" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Email">
+          <Members>
+           <Member Name="#GetSmtpClient()">
+            <Messages>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'Email.GetSmtpClient()'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="4" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ModelsCommon">
+          <Members>
+           <Member Name="#DBValue(System.Nullable`1&lt;System.Int32&gt;)">
+            <Messages>
+             <Message Id="i" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'ModelsCommon.DBValue(int?)'</Item>
+               <Item>'i'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="38" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#DBValue(System.String)">
+            <Messages>
+             <Message Id="str" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="MemberParameter">
+               <Item>'ModelsCommon.DBValue(string)'</Item>
+               <Item>str</Item>
+               <Item>'str'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="38" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ProcessStringInput(System.String)">
+            <Messages>
+             <Message TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820" Created="2009-08-17 15:08:19Z">
+              <Issue Name="IsNullOrEmpty">
+               <Item>'string.operator ==(string, string)'</Item>
+               <Item>'ModelsCommon.ProcessStringInput(string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Paginator">
+          <Messages>
+           <Message Id="Paginator" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+            <Issue Name="Type">
+             <Item>Paginator</Item>
+             <Item>'Paginator'</Item>
+            </Issue>
+            <Notes>
+             <User Name="James">
+              <Note Id="39" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="StringExtensions">
+          <Members>
+           <Member Name="#IsBlank(System.String)">
+            <Messages>
+             <Message Id="s" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'StringExtensions.IsBlank(this string)'</Item>
+               <Item>'s'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="32" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ToBool(System.String)">
+            <Messages>
+             <Message Id="s" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'StringExtensions.ToBool(this string)'</Item>
+               <Item>'s'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="10" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'StringExtensions.ToBool(this string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="4" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ToHuman(System.String)">
+            <Messages>
+             <Message Id="s" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'StringExtensions.ToHuman(this string)'</Item>
+               <Item>'s'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="32" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'StringExtensions.ToHuman(this string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="4" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ToISODate(System.DateTime)">
+            <Messages>
+             <Message Id="d" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'StringExtensions.ToISODate(this DateTime)'</Item>
+               <Item>'d'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="32" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ToShortDate(System.String)">
+            <Messages>
+             <Message Id="s" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'StringExtensions.ToShortDate(this string)'</Item>
+               <Item>'s'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="31" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ToTitleCase(System.String)">
+            <Messages>
+             <Message Id="s" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'StringExtensions.ToTitleCase(this string)'</Item>
+               <Item>'s'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="30" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="System.String.ToUpper" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'string.ToUpper()'</Item>
+               <Item>'StringExtensions.ToTitleCase(this string)'</Item>
+               <Item>'string.ToUpper(CultureInfo)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="4" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ToUnderscore(System.String)">
+            <Messages>
+             <Message Id="s" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'StringExtensions.ToUnderscore(this string)'</Item>
+               <Item>'s'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="32" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Validation">
+          <Members>
+           <Member Name="#TryGuid(System.String,System.Guid&amp;)">
+            <Messages>
+             <Message Id="s" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 16:41:28Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'Validation.TryGuid(string, out Guid)'</Item>
+               <Item>'s'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="33" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="WMD.Models">
+        <Types>
+         <Type Name="BaseModel">
+          <Messages>
+           <Message TypeName="OverrideMethodsOnComparableTypes" Category="Microsoft.Design" CheckId="CA1036" Status="Excluded" Created="2009-08-17 15:08:19Z">
+            <Issue Name="Operator">
+             <Item>'BaseModel'</Item>
+             <Item>&lt;</Item>
+            </Issue>
+            <Issue Name="Operator">
+             <Item>'BaseModel'</Item>
+             <Item>&gt;</Item>
+            </Issue>
+            <Notes>
+             <User Name="James">
+              <Note Id="18" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#_connectionString">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel._connectionString'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="5" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#_data">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel._data'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="5" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#_fields">
+            <Messages>
+             <Message TypeName="ArrayFieldsShouldNotBeReadOnly" Category="Microsoft.Security" CheckId="CA2105" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel._fields'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel._fields'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="5" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#_originalData">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel._originalData'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="5" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#_primaryKey">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel._primaryKey'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="5" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#_relatedIds">
+            <Messages>
+             <Message TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel._relatedIds'</Item>
+               <Item>'Dictionary&lt;string, List&lt;string&gt;&gt;'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel._relatedIds'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="5" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#_relatedObjects">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel._relatedObjects'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="5" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#_tableName">
+            <Messages>
+             <Message TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel._tableName'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="5" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#AddToRelatedList`1(System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.AddToRelatedList&lt;TModel&gt;(string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FetchAll`1()">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.FetchAll&lt;TModel&gt;()'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FetchAll`1(System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.FetchAll&lt;TModel&gt;(string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FetchAll`1(System.String,System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.FetchAll&lt;TModel&gt;(string, string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FetchAll`1(System.String,System.String,System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.FetchAll&lt;TModel&gt;(string, string, string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FetchAll`1(System.String,System.String,System.String,System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.FetchAll&lt;TModel&gt;(string, string, string, string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FetchDictionary`1(System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.FetchDictionary&lt;TModel&gt;(string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FetchPage`1(System.Int32,System.Int32)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.FetchPage&lt;TModel&gt;(int, int)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FetchPage`1(System.Int32,System.Int32,System.Object)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.FetchPage&lt;TModel&gt;(int, int, object)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FetchPage`1(System.Int32,System.Int32,System.String,System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.FetchPage&lt;TModel&gt;(int, int, string, string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FetchPage`1(System.Int32,System.Int32,System.String,System.String,System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.FetchPage&lt;TModel&gt;(int, int, string, string, string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#FetchPage`1(System.Int32,System.Int32,System.String,System.String,System.String,System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.FetchPage&lt;TModel&gt;(int, int, string, string, string, string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetChangedFields()">
+            <Messages>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2009-08-17 15:08:19Z">
+              <Issue Certainty="50">
+               <Item>'BaseModel.GetChangedFields()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetModelName()">
+            <Messages>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Created="2009-08-17 15:08:19Z">
+              <Issue Certainty="50">
+               <Item>'BaseModel.GetModelName()'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetRelatedList`1()">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.GetRelatedList&lt;TModel&gt;()'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetRelatedListDB`1()">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.GetRelatedListDB&lt;TModel&gt;()'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetRelatedListDB`1(System.String,System.String,System.String,System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.GetRelatedListDB&lt;TModel&gt;(string, string, string, string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Load`1(System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.Load&lt;TModel&gt;(string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#LoadByForeignKey`1(System.Int32,System.Int32)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.LoadByForeignKey&lt;TModel&gt;(int, int)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#LoadByForeignKey`1(System.String,System.Int32,System.Int32)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.LoadByForeignKey&lt;TModel&gt;(string, int, int)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#LoadRelated`1()">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.LoadRelated&lt;TModel&gt;()'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#LoadRelated`1(System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.LoadRelated&lt;TModel&gt;(string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#LoadRelatedJoin`1()">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.LoadRelatedJoin&lt;TModel&gt;()'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#LoadRelatedJoin`1(System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.LoadRelatedJoin&lt;TModel&gt;(string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#LoadRelatedJoin`1(System.String,System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.LoadRelatedJoin&lt;TModel&gt;(string, string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#LoadRelatedJoin`1(System.String,System.String,System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.LoadRelatedJoin&lt;TModel&gt;(string, string, string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#LoadRelatedJoin`1(System.String,System.String,System.String,System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.LoadRelatedJoin&lt;TModel&gt;(string, string, string, string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#op_Equality(WMD.Models.BaseModel,WMD.Models.BaseModel)">
+            <Messages>
+             <Message Id="x" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-18 15:28:40Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'BaseModel.operator ==(BaseModel, BaseModel)'</Item>
+               <Item>'x'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="37" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="y" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-18 15:28:40Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'BaseModel.operator ==(BaseModel, BaseModel)'</Item>
+               <Item>'y'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="37" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#op_Inequality(WMD.Models.BaseModel,WMD.Models.BaseModel)">
+            <Messages>
+             <Message Id="x" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-18 15:28:40Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'BaseModel.operator !=(BaseModel, BaseModel)'</Item>
+               <Item>'x'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="29" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="y" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-18 15:28:40Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'BaseModel.operator !=(BaseModel, BaseModel)'</Item>
+               <Item>'y'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="29" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#RemoveFromRelatedList`1(System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.RemoveFromRelatedList&lt;TModel&gt;(string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SaveNew()">
+            <Messages>
+             <Message TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="MemberNewerVersion">
+               <Item>New</Item>
+               <Item>'BaseModel.SaveNew()'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="41" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SaveRelatedJoin`1()">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.SaveRelatedJoin&lt;TModel&gt;()'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SaveRelatedJoin`1(System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.SaveRelatedJoin&lt;TModel&gt;(string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SaveRelatedJoin`1(System.String,System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.SaveRelatedJoin&lt;TModel&gt;(string, string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SaveRelatedJoin`1(System.String,System.String,System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-18 17:13:36Z">
+              <Issue>
+               <Item>'BaseModel.SaveRelatedJoin&lt;TModel&gt;(string, string, string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SetRelatedList`1(System.String)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.SetRelatedList&lt;TModel&gt;(string)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#TotalCount`1()">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.TotalCount&lt;TModel&gt;()'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#TotalCount`1(System.Object)">
+            <Messages>
+             <Message TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'BaseModel.TotalCount&lt;TModel&gt;(object)'</Item>
+               <Item>'TModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="27" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ChainOfCustody">
+          <Members>
+           <Member Name="#.ctor(System.String)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'ChainOfCustody.ChainOfCustody(string)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;ChainOfCustody..ctor(String)&#xD;&#xA;BaseModel.LoadData():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#date_deployed">
+            <Accessors>
+             <Accessor Name="#set_date_deployed(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2009-08-17 15:08:19Z">
+                <Issue>
+                 <Item>'ChainOfCustody.date_deployed.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#date_shipped_to_lab">
+            <Accessors>
+             <Accessor Name="#set_date_shipped_to_lab(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2009-08-17 15:08:19Z">
+                <Issue>
+                 <Item>'ChainOfCustody.date_shipped_to_lab.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#deployed_by">
+            <Accessors>
+             <Accessor Name="#set_deployed_by(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2009-08-17 15:08:19Z">
+                <Issue>
+                 <Item>'ChainOfCustody.deployed_by.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#elapsed_sampling_duration">
+            <Accessors>
+             <Accessor Name="#set_elapsed_sampling_duration(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2009-08-17 15:08:19Z">
+                <Issue>
+                 <Item>'ChainOfCustody.elapsed_sampling_duration.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#FetchScheduled(System.DateTime,System.DateTime,WMD.Models.Location,WMD.Models.SampleType)">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'sampleTypeFilter'</Item>
+               <Item>'ChainOfCustody.FetchScheduled(DateTime, DateTime, Location, SampleType)'</Item>
+               <Item>'SampleType'</Item>
+               <Item>'BaseModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="8" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#sampler_flowrate">
+            <Messages>
+             <Message Id="flowrate" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>flowrate</Item>
+               <Item>'ChainOfCustody.sampler_flowrate'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="35" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#sampler_setpoint">
+            <Messages>
+             <Message Id="setpoint" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>setpoint</Item>
+               <Item>'ChainOfCustody.sampler_setpoint'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="42" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Samples">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'ChainOfCustody.Samples'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ScheduledSamplingDate">
+            <Accessors>
+             <Accessor Name="#get_ScheduledSamplingDate()">
+              <Messages>
+               <Message Id="System.DateTime.TryParse(System.String,System.DateTime@)" TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Usage" CheckId="CA1806" Created="2009-08-17 15:08:19Z">
+                <Issue Name="TryParse">
+                 <Item>'ChainOfCustody.ScheduledSamplingDate.get()'</Item>
+                 <Item>'DateTime.TryParse(string, out DateTime)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#voc_cannister_pressure">
+            <Messages>
+             <Message Id="cannister" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>cannister</Item>
+               <Item>'ChainOfCustody.voc_cannister_pressure'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="35" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#voc_cannister_pressure_after_connection">
+            <Messages>
+             <Message Id="cannister" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>cannister</Item>
+               <Item>'ChainOfCustody.voc_cannister_pressure_after_connection'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="35" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#voc_cannister_pressure_before_shipping">
+            <Messages>
+             <Message Id="cannister" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>cannister</Item>
+               <Item>'ChainOfCustody.voc_cannister_pressure_before_shipping'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="35" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#voc_final_cannister_pressure">
+            <Messages>
+             <Message Id="cannister" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>cannister</Item>
+               <Item>'ChainOfCustody.voc_final_cannister_pressure'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="35" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="IntervalType">
+          <Members>
+           <Member Name="#weekdaily">
+            <Messages>
+             <Message Id="weekdaily" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-18 18:02:15Z">
+              <Issue Name="Member">
+               <Item>weekdaily</Item>
+               <Item>'IntervalType.weekdaily'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="34" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Item">
+          <Members>
+           <Member Name="#item_id">
+            <Accessors>
+             <Accessor Name="#set_item_id(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2009-08-17 15:08:19Z">
+                <Issue>
+                 <Item>'Item.item_id.set(string)'</Item>
+                </Issue>
+                <Notes>
+                 <User Name="James">
+                  <Note Id="22" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#notes">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'Item.notes'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#parameters">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'Item.parameters'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ItemMake">
+          <Members>
+           <Member Name="#make_id">
+            <Accessors>
+             <Accessor Name="#set_make_id(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2009-08-17 15:08:19Z">
+                <Issue>
+                 <Item>'ItemMake.make_id.set(string)'</Item>
+                </Issue>
+                <Notes>
+                 <User Name="James">
+                  <Note Id="22" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ItemModel">
+          <Members>
+           <Member Name="#model_id">
+            <Accessors>
+             <Accessor Name="#set_model_id(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2009-08-17 15:08:19Z">
+                <Issue>
+                 <Item>'ItemModel.model_id.set(string)'</Item>
+                </Issue>
+                <Notes>
+                 <User Name="James">
+                  <Note Id="22" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Location">
+          <Members>
+           <Member Name="#.ctor(System.String)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'Location.Location(string)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;Location..ctor(String)&#xD;&#xA;Location.Load():Void&#xD;&#xA;BaseModel.LoadData():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#date_qa_signoff">
+            <Messages>
+             <Message Id="signoff" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>signoff</Item>
+               <Item>'Location.date_qa_signoff'</Item>
+               <Item>SignOut</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="1" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Items">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'Location.Items'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Notes">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'Location.Notes'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Parameters">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'Location.Parameters'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#qa_signoff">
+            <Messages>
+             <Message Id="signoff" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>signoff</Item>
+               <Item>'Location.qa_signoff'</Item>
+               <Item>SignOut</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="0" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="LocationImage">
+          <Members>
+           <Member Name="#.ctor(System.String)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'LocationImage.LocationImage(string)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;LocationImage..ctor(String)&#xD;&#xA;BaseModel.LoadData():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#image">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotBeWriteOnly" Category="Microsoft.Design" CheckId="CA1044" Created="2009-08-17 15:08:19Z">
+              <Issue Name="MakeMoreAccessible">
+               <Item>'LocationImage.image'</Item>
+              </Issue>
+             </Message>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'LocationImage.image'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ModelException">
+          <Messages>
+           <Message TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032" Created="2009-08-17 15:08:19Z">
+            <Issue Name="MissingConstructor">
+             <Item>'ModelException'</Item>
+             <Item>protected ModelException(SerializationInfo, StreamingContext)</Item>
+            </Issue>
+            <Issue Name="MissingConstructor">
+             <Item>'ModelException'</Item>
+             <Item>public ModelException(String)</Item>
+            </Issue>
+            <Issue Name="MissingConstructor">
+             <Item>'ModelException'</Item>
+             <Item>public ModelException(String, Exception)</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237" Created="2009-08-17 15:08:19Z">
+            <Issue Certainty="95" Level="Error">
+             <Item>'ModelException'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#AddError(System.Exception)">
+            <Messages>
+             <Message Id="e" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="MemberParameterMoreMeaningfulName">
+               <Item>'ModelException.AddError(Exception)'</Item>
+               <Item>'e'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="11" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Note">
+          <Members>
+           <Member Name="#GetLatestDailySystemChecks()">
+            <Messages>
+             <Message TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Certainty="50">
+               <Item>'Note.GetLatestDailySystemChecks()'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="3" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#notes">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'Note.notes'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#parameters">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'Note.parameters'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Note+ParentType">
+          <Messages>
+           <Message TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034" Created="2009-08-17 15:08:19Z">
+            <Issue>
+             <Item>'Note.ParentType'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+         </Type>
+         <Type Name="Parameter">
+          <Members>
+           <Member Name="#parameter_id">
+            <Accessors>
+             <Accessor Name="#set_parameter_id(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2009-08-17 15:08:19Z">
+                <Issue>
+                 <Item>'Parameter.parameter_id.set(string)'</Item>
+                </Issue>
+                <Notes>
+                 <User Name="James">
+                  <Note Id="22" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Policy">
+          <Messages>
+           <Message TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724" Created="2009-08-17 15:08:19Z">
+            <Issue Name="System">
+             <Item>'Policy'</Item>
+             <Item>System.Security.Policy</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#.ctor(System.String)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'Policy.Policy(string)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;Policy..ctor(String)&#xD;&#xA;BaseModel.LoadData():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#admin_panel_access">
+            <Accessors>
+             <Accessor Name="#set_admin_panel_access(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Created="2009-08-17 15:08:19Z">
+                <Issue>
+                 <Item>'Policy.admin_panel_access.set(string)'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#docit_access">
+            <Messages>
+             <Message Id="docit" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>docit</Item>
+               <Item>'Policy.docit_access'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="36" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#sampleit_access">
+            <Messages>
+             <Message Id="sampleit" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>sampleit</Item>
+               <Item>'Policy.sampleit_access'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="35" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ResultData">
+          <Members>
+           <Member Name="#cas_number">
+            <Messages>
+             <Message Id="cas" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>cas</Item>
+               <Item>'ResultData.cas_number'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="35" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#qaqc_flag">
+            <Messages>
+             <Message Id="qaqc" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>qaqc</Item>
+               <Item>'ResultData.qaqc_flag'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="9" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="flag" TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="MemberNoAlternate">
+               <Item>flag</Item>
+               <Item>'ResultData.qaqc_flag'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="2" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#raw_mesurement">
+            <Messages>
+             <Message Id="mesurement" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>mesurement</Item>
+               <Item>'ResultData.raw_mesurement'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="35" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#raw_mesurement_unit">
+            <Messages>
+             <Message Id="mesurement" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>mesurement</Item>
+               <Item>'ResultData.raw_mesurement_unit'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="35" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Role">
+          <Members>
+           <Member Name="#.ctor(System.String)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'Role.Role(string)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;Role..ctor(String)&#xD;&#xA;BaseModel.LoadData():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#policy_id">
+            <Accessors>
+             <Accessor Name="#set_policy_id(System.String)">
+              <Messages>
+               <Message TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811" Status="Excluded" Created="2009-08-17 15:08:19Z">
+                <Issue>
+                 <Item>'Role.policy_id.set(string)'</Item>
+                </Issue>
+                <Notes>
+                 <User Name="James">
+                  <Note Id="22" />
+                 </User>
+                </Notes>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Sample">
+          <Members>
+           <Member Name="#date_recieved_from_lab">
+            <Messages>
+             <Message Id="recieved" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>recieved</Item>
+               <Item>'Sample.date_recieved_from_lab'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="35" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#wbea_id">
+            <Messages>
+             <Message Id="wbea" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>wbea</Item>
+               <Item>'Sample.wbea_id'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="36" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SampleResult">
+          <Members>
+           <Member Name="#date_sample_recieved">
+            <Messages>
+             <Message Id="recieved" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>recieved</Item>
+               <Item>'SampleResult.date_sample_recieved'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="35" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#voc_recieved_cannister_pressure">
+            <Messages>
+             <Message Id="cannister" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>cannister</Item>
+               <Item>'SampleResult.voc_recieved_cannister_pressure'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="12" />
+               </User>
+              </Notes>
+             </Message>
+             <Message Id="recieved" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>recieved</Item>
+               <Item>'SampleResult.voc_recieved_cannister_pressure'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="12" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#wbea_id">
+            <Messages>
+             <Message Id="wbea" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue Name="Member">
+               <Item>wbea</Item>
+               <Item>'SampleResult.wbea_id'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="36" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Schedule">
+          <Members>
+           <Member Name="#FetchAll(WMD.Models.Location)">
+            <Messages>
+             <Message TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'location'</Item>
+               <Item>'Schedule.FetchAll(Location)'</Item>
+               <Item>'Location'</Item>
+               <Item>'BaseModel'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="8" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Notes">
+            <Messages>
+             <Message TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'Schedule.Notes'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="User">
+          <Members>
+           <Member Name="#.ctor(System.String)">
+            <Messages>
+             <Message TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'User.User(string)'</Item>
+               <Item>&#xD;&#xA;&#xD;&#xA;User..ctor(String)&#xD;&#xA;BaseModel.LoadData():Void</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ValidationError">
+          <Members>
+           <Member Name="#Field">
+            <Accessors>
+             <Accessor Name="#set_Field(System.String)">
+              <Messages>
+               <Message TypeName="InstantiateArgumentExceptionsCorrectly" Category="Microsoft.Usage" CheckId="CA2208" Created="2009-08-17 15:08:19Z">
+                <Issue Name="IncorrectParameterName">
+                 <Item>'ValidationError.Field.set(string)'</Item>
+                 <Item>field</Item>
+                 <Item>'paramName'</Item>
+                 <Item>'ArgumentNullException'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+           <Member Name="#Message">
+            <Accessors>
+             <Accessor Name="#set_Message(System.String)">
+              <Messages>
+               <Message TypeName="InstantiateArgumentExceptionsCorrectly" Category="Microsoft.Usage" CheckId="CA2208" Created="2009-08-17 15:08:19Z">
+                <Issue Name="IncorrectParameterName">
+                 <Item>'ValidationError.Message.set(string)'</Item>
+                 <Item>message</Item>
+                 <Item>'paramName'</Item>
+                 <Item>'ArgumentNullException'</Item>
+                </Issue>
+               </Message>
+              </Messages>
+             </Accessor>
+            </Accessors>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="Validator">
+          <Members>
+           <Member Name="#allowMultipleErrorField">
+            <Messages>
+             <Message TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'Validator.allowMultipleErrorField'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#MaxLength(System.String,System.Int32)">
+            <Messages>
+             <Message Id="1#" TypeName="ParameterNamesShouldNotMatchMemberNames" Category="Microsoft.Naming" CheckId="CA1719" Created="2009-08-18 17:52:10Z">
+              <Issue>
+               <Item>'maxLength'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#MinLength(System.String,System.Int32)">
+            <Messages>
+             <Message Id="1#" TypeName="ParameterNamesShouldNotMatchMemberNames" Category="Microsoft.Naming" CheckId="CA1719" Created="2009-08-18 17:52:10Z">
+              <Issue>
+               <Item>'minLength'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#RequiredFields(System.String[])">
+            <Messages>
+             <Message TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820" Created="2009-08-17 15:08:19Z">
+              <Issue Name="IsNullOrEmpty">
+               <Item>'string.operator ==(string, string)'</Item>
+               <Item>'Validator.RequiredFields(string[])'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="WMD.Views">
+        <Types>
+         <Type Name="HtmlHelperExtensions">
+          <Members>
+           <Member Name="#ImageBuilder(System.String,System.Collections.Generic.IDictionary`2&lt;System.String,System.Object&gt;)">
+            <Messages>
+             <Message Id="System.String.EndsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'HtmlHelperExtensions.ImageBuilder(string, IDictionary&lt;string, object&gt;)'</Item>
+               <Item>'string.EndsWith(string)'</Item>
+               <Item>'string.EndsWith(string, StringComparison)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="40" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#SetPostAttributes(System.Collections.Generic.IDictionary`2&lt;System.String,System.Object&gt;&amp;)">
+            <Messages>
+             <Message Id="System.String.EndsWith(System.String)" TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'HtmlHelperExtensions.SetPostAttributes(ref IDictionary&lt;string, object&gt;)'</Item>
+               <Item>'string.EndsWith(string)'</Item>
+               <Item>'string.EndsWith(string, StringComparison)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="40" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="WMD.Views.NoteHelpers">
+        <Types>
+         <Type Name="NoteHtmlHelperExtensions">
+          <Members>
+           <Member Name="#NoteParent(System.Web.Mvc.HtmlHelper,WMD.Models.Note)">
+            <Messages>
+             <Message Id="helper" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'helper'</Item>
+               <Item>'NoteHtmlHelperExtensions.NoteParent(this HtmlHelper, Note)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="19" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#NoteStarImage(System.Web.Mvc.HtmlHelper,WMD.Models.Note)">
+            <Messages>
+             <Message Id="helper" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-18 19:00:16Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'helper'</Item>
+               <Item>'NoteHtmlHelperExtensions.NoteStarImage(this HtmlHelper, Note)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="45" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/Admin/bin/WMD.dll">
+    <Modules>
+     <Module Name="wmd.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2009-08-17 15:08:19Z">
+        <Issue Name="NoStrongName">
+         <Item>'WMD.dll'</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Created="2009-08-17 15:08:19Z">
+        <Issue>
+         <Item>'WMD.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="WMD">
+        <Types>
+         <Type Name="HandleErrorAttribute">
+          <Messages>
+           <Message TypeName="AvoidUnsealedAttributes" Category="Microsoft.Performance" CheckId="CA1813" Created="2009-08-17 15:08:19Z">
+            <Issue>
+             <Item>'HandleErrorAttribute'</Item>
+            </Issue>
+           </Message>
+           <Message TypeName="MarkAttributesWithAttributeUsage" Category="Microsoft.Design" CheckId="CA1018" Created="2009-08-17 15:08:19Z">
+            <Issue Name="Inherited" Certainty="75" Level="Warning">
+             <Item>'HandleErrorAttribute'</Item>
+            </Issue>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#OnException(System.Web.Mvc.ExceptionContext)">
+            <Messages>
+             <Message Id="0#" TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'HandleErrorAttribute.OnException(ExceptionContext)'</Item>
+               <Item>'context'</Item>
+               <Item>'filterContext'</Item>
+               <Item>'HandleErrorAttribute.OnException(ExceptionContext)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="MvcApplication">
+          <Messages>
+           <Message Id="Mvc" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-17 15:08:19Z">
+            <Issue Name="Type">
+             <Item>Mvc</Item>
+             <Item>'MvcApplication'</Item>
+            </Issue>
+            <Notes>
+             <User Name="James">
+              <Note Id="15" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#Application_Start()">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'MvcApplication.Application_Start()'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="16" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="WMD.AdminPanel.Controllers">
+        <Types>
+         <Type Name="AccountController">
+          <Members>
+           <Member Name="#EditAccount(System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'AccountController.EditAccount(FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ItemMakeController">
+          <Members>
+           <Member Name="#Create(System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'ItemMakeController.Create(FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Edit(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'ItemMakeController.Edit(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ItemModelController">
+          <Members>
+           <Member Name="#Create(System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'ItemModelController.Create(FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Edit(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'ItemModelController.Edit(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="LocationController">
+          <Members>
+           <Member Name="#Create(System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'LocationController.Create(FormCollection)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'LocationController.Create(FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="26" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Edit(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'LocationController.Edit(string, FormCollection)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'LocationController.Edit(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="26" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="LocationImageController">
+          <Members>
+           <Member Name="#Edit(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'LocationImageController.Edit(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="26" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetImage(System.String)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'LocationImageController.GetImage(string)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="17" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetImageFromRequest(System.Byte[]&amp;,System.String&amp;)">
+            <Messages>
+             <Message Id="System.String.ToLower" TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" Status="Excluded" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'string.ToLower()'</Item>
+               <Item>'LocationImageController.GetImageFromRequest(out byte[], out string)'</Item>
+               <Item>'string.ToLower(CultureInfo)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="4" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Upload(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2009-08-17 15:08:19Z">
+              <Issue Name="TooGeneric">
+               <Item>'LocationImageController.Upload(string, FormCollection)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'LocationImageController.Upload(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="26" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ParameterController">
+          <Members>
+           <Member Name="#Create(System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'ParameterController.Create(FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Edit(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'ParameterController.Edit(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="PolicyController">
+          <Members>
+           <Member Name="#Edit(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'PolicyController.Edit(string, FormCollection)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'PolicyController.Edit(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="RoleController">
+          <Members>
+           <Member Name="#Create(System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'RoleController.Create(FormCollection)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'RoleController.Create(FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Edit(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'RoleController.Edit(string, FormCollection)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'RoleController.Edit(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ScheduleController">
+          <Members>
+           <Member Name="#Create(System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'ScheduleController.Create(FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Edit(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'ScheduleController.Edit(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="UserController">
+          <Members>
+           <Member Name="#Create(System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'UserController.Create(FormCollection)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'UserController.Create(FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Edit(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-08-17 15:08:19Z">
+              <Issue>
+               <Item>'UserController.Edit(string, FormCollection)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-17 15:08:19Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'UserController.Edit(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+   <Target Name="$(ProjectDir)/DocIt/bin/DocIt.dll">
+    <Modules>
+     <Module Name="docit.dll">
+      <Messages>
+       <Message TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210" Created="2009-08-18 15:28:40Z">
+        <Issue Name="NoStrongName">
+         <Item>'DocIt.dll'</Item>
+        </Issue>
+       </Message>
+       <Message TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014" Created="2009-08-18 15:28:40Z">
+        <Issue>
+         <Item>'DocIt.dll'</Item>
+        </Issue>
+       </Message>
+      </Messages>
+      <Namespaces>
+       <Namespace Name="WMD.DocIt">
+        <Types>
+         <Type Name="MvcApplication">
+          <Messages>
+           <Message Id="Mvc" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-18 15:28:40Z">
+            <Issue Name="Type">
+             <Item>Mvc</Item>
+             <Item>'MvcApplication'</Item>
+            </Issue>
+            <Notes>
+             <User Name="James">
+              <Note Id="14" />
+             </User>
+            </Notes>
+           </Message>
+          </Messages>
+          <Members>
+           <Member Name="#Application_Start()">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'MvcApplication.Application_Start()'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="16" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="WMD.DocIt.Controllers">
+        <Types>
+         <Type Name="AccountController">
+          <Members>
+           <Member Name="#EditAccount(System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'AccountController.EditAccount(FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="CalendarDate">
+          <Members>
+           <Member Name="#.ctor(System.DateTime)">
+            <Messages>
+             <Message Id="newdate" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2009-08-18 15:28:40Z">
+              <Issue Name="MemberParameter">
+               <Item>'CalendarDate.CalendarDate(DateTime)'</Item>
+               <Item>newdate</Item>
+               <Item>'newdate'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#.ctor(System.DateTime,System.Collections.Generic.List`1&lt;WMD.Models.ChainOfCustody&gt;)">
+            <Messages>
+             <Message Id="newdate" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Created="2009-08-18 15:28:40Z">
+              <Issue Name="MemberParameter">
+               <Item>'CalendarDate.CalendarDate(DateTime, List&lt;ChainOfCustody&gt;)'</Item>
+               <Item>newdate</Item>
+               <Item>'newdate'</Item>
+              </Issue>
+             </Message>
+             <Message Id="cocs" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-18 15:28:40Z">
+              <Issue Name="MemberParameter">
+               <Item>'CalendarDate.CalendarDate(DateTime, List&lt;ChainOfCustody&gt;)'</Item>
+               <Item>cocs</Item>
+               <Item>'cocs'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="13" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#ChainOfCustodys">
+            <Messages>
+             <Message Id="Custodys" TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704" Status="Excluded" Created="2009-08-18 15:28:40Z">
+              <Issue Name="Member">
+               <Item>Custodys</Item>
+               <Item>'CalendarDate.ChainOfCustodys'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="43" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ChainOfCustodyController">
+          <Members>
+           <Member Name="#Create(System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-08-18 15:28:40Z">
+              <Issue>
+               <Item>'ChainOfCustodyController.Create(FormCollection)'</Item>
+               <Item>'object'</Item>
+              </Issue>
+             </Message>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'ChainOfCustodyController.Create(FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="24" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Details(System.Int32)">
+            <Messages>
+             <Message Id="id" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'id'</Item>
+               <Item>'ChainOfCustodyController.Details(int)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Open(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-08-18 15:28:40Z">
+              <Issue>
+               <Item>'ChainOfCustodyController.Open(string, FormCollection)'</Item>
+               <Item>'object'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#RemoveSample(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-08-18 15:28:40Z">
+              <Issue>
+               <Item>'ChainOfCustodyController.RemoveSample(string, FormCollection)'</Item>
+               <Item>'object'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ItemMakeController">
+          <Members>
+           <Member Name="#Create(System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'ItemMakeController.Create(FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Edit(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'ItemMakeController.Edit(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ItemModelController">
+          <Members>
+           <Member Name="#Create(System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'ItemModelController.Create(FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Edit(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'ItemModelController.Edit(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="LocationController">
+          <Members>
+           <Member Name="#Create(System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-08-18 15:28:40Z">
+              <Issue>
+               <Item>'LocationController.Create(FormCollection)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'LocationController.Create(FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Edit(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-08-18 15:28:40Z">
+              <Issue>
+               <Item>'LocationController.Edit(string, FormCollection)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'LocationController.Edit(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="25" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="LocationImageController">
+          <Members>
+           <Member Name="#Edit(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'LocationImageController.Edit(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="24" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#GetImage(System.String)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Status="Excluded" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'LocationImageController.GetImage(string)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="17" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Upload(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201" Created="2009-08-18 15:28:40Z">
+              <Issue Name="TooGeneric">
+               <Item>'LocationImageController.Upload(string, FormCollection)'</Item>
+               <Item>'Exception'</Item>
+              </Issue>
+             </Message>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'LocationImageController.Upload(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="24" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="SampleController">
+          <Members>
+           <Member Name="#Create(System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031" Created="2009-08-18 15:28:40Z">
+              <Issue>
+               <Item>'SampleController.Create(FormCollection)'</Item>
+               <Item>'object'</Item>
+              </Issue>
+             </Message>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'SampleController.Create(FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="24" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ScheduleCalendar">
+          <Members>
+           <Member Name="#GetCoCsInMonth(System.Int32,System.Int32,WMD.Models.Location,WMD.Models.SampleType)">
+            <Messages>
+             <Message TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822" Created="2009-08-18 15:28:40Z" FixCategory="NonBreaking">
+              <Issue>
+               <Item>'ScheduleCalendar.GetCoCsInMonth(int, int, Location, SampleType)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+         <Type Name="ScheduleController">
+          <Members>
+           <Member Name="#Calendar(System.Nullable`1&lt;System.Int32&gt;,System.Nullable`1&lt;System.Int32&gt;,System.String,System.String)">
+            <Messages>
+             <Message Id="location" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'location'</Item>
+               <Item>'ScheduleController.Calendar(int?, int?, string, string)'</Item>
+              </Issue>
+             </Message>
+             <Message Id="sample_type" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'sample_type'</Item>
+               <Item>'ScheduleController.Calendar(int?, int?, string, string)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Create(System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'ScheduleController.Create(FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="23" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#Edit(System.String,System.Web.Mvc.FormCollection)">
+            <Messages>
+             <Message Id="collection" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Status="Excluded" Created="2009-08-18 15:28:40Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'collection'</Item>
+               <Item>'ScheduleController.Edit(string, FormCollection)'</Item>
+              </Issue>
+              <Notes>
+               <User Name="James">
+                <Note Id="23" />
+               </User>
+              </Notes>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+       <Namespace Name="WMD.Views.CalendarHelpers">
+        <Types>
+         <Type Name="CalendarHelper">
+          <Members>
+           <Member Name="#CalendarCellCss(System.Web.Mvc.HtmlHelper,WMD.DocIt.Controllers.CalendarDate)">
+            <Messages>
+             <Message Id="helper" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-08-18 21:56:48Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'helper'</Item>
+               <Item>'CalendarHelper.CalendarCellCss(this HtmlHelper, CalendarDate)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+           <Member Name="#CalendarLinkCss(System.Web.Mvc.HtmlHelper,WMD.Models.ChainOfCustody)">
+            <Messages>
+             <Message Id="helper" TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801" Created="2009-08-18 21:56:48Z" FixCategory="DependsOnFix">
+              <Issue>
+               <Item>'helper'</Item>
+               <Item>'CalendarHelper.CalendarLinkCss(this HtmlHelper, ChainOfCustody)'</Item>
+              </Issue>
+             </Message>
+            </Messages>
+           </Member>
+          </Members>
+         </Type>
+        </Types>
+       </Namespace>
+      </Namespaces>
+     </Module>
+    </Modules>
+   </Target>
+  </Targets>
+  <Notes>
+   <User Name="James">
+    <Note Id="0" Modified="2009-08-17 15:38:24Z">qa_signoff is a data field not relating to user SignOut.</Note>
+    <Note Id="1" Modified="2009-08-17 15:38:50Z">data_qa_signoff is a data field not related to user SignOut</Note>
+    <Note Id="2" Modified="2009-08-17 15:51:18Z">qaqc_flag is a legitmate data field and not an internal flag variable</Note>
+    <Note Id="3" Modified="2009-08-17 23:07:19Z">GetLatestDailySystemChecks may be an expensive operation, and thus preferable to be a getter instead of a property.</Note>
+    <Note Id="4" Modified="2009-08-17 23:19:17Z">ignore ToUpper/ToLower culture differences</Note>
+    <Note Id="5" Modified="2009-08-17 23:34:38Z">BaseModel instance fields are intentionally available to inherited classes</Note>
+    <Note Id="6" Modified="2009-08-17 23:40:13Z">not applicable to Controller, which will not be derived.</Note>
+    <Note Id="7" Modified="2009-08-17 23:41:20Z">not applicable to Controller, which will not be derived.</Note>
+    <Note Id="8" Modified="2009-08-17 23:42:18Z">BaseModel is too generic to make sense for this method as a parameter</Note>
+    <Note Id="9" Modified="2009-08-18 00:02:32Z">is valid data field name</Note>
+    <Note Id="10" Modified="2009-08-18 00:06:41Z">short method</Note>
+    <Note Id="11" Modified="2009-08-18 00:07:13Z">e is valid name for exceptions</Note>
+    <Note Id="12" Modified="2009-08-18 00:07:47Z">voc is valid term</Note>
+    <Note Id="13" Modified="2009-08-18 15:34:54Z">coc is valid abbrev for ChainOfCustodys</Note>
+    <Note Id="14" Modified="2009-08-18 15:35:22Z">Microsoft MVC framework code</Note>
+    <Note Id="15" Modified="2009-08-18 15:35:36Z">Microsoft MVC framework</Note>
+    <Note Id="16" Modified="2009-08-18 15:46:08Z">Microsoft MVC framework</Note>
+    <Note Id="17" Modified="2009-08-18 15:57:11Z">controller actions cannot be marked static</Note>
+    <Note Id="18" Modified="2009-08-18 15:58:33Z">comparison operators &lt; &amp; &gt; make no sense for BaseModel and derived classes</Note>
+    <Note Id="19" Modified="2009-08-18 17:07:04Z">keeping extension helper to make name shorter (Html.NoteStarImg is shorter than NoteHtmlHelperExtensions.NoteStarImg) and it also fits with other helpers in Notes</Note>
+    <Note Id="21" Modified="2009-08-18 17:09:26Z">Authentication.CreateUser is not implemented</Note>
+    <Note Id="22" Modified="2009-08-18 17:17:16Z">private id setters are valid; no need to remove these</Note>
+    <Note Id="23" Modified="2009-08-18 17:33:18Z">FormCollection is used by UpdateModel method</Note>
+    <Note Id="24" Modified="2009-08-18 17:33:37Z">FormCollection is used by UpdateModel method</Note>
+    <Note Id="25" Modified="2009-08-18 17:34:11Z">FormCollection is used by UpdateModel method</Note>
+    <Note Id="26" Modified="2009-08-18 17:34:20Z">FormCollection is used by UpdateModel method</Note>
+    <Note Id="27" Modified="2009-08-18 17:45:29Z">yeah... BaseModel is quite complex... perhaps there is a better approach than using generics to provide common methods to child classes.</Note>
+    <Note Id="28" Modified="2009-08-18 17:46:28Z">yeah... BaseModel is quite complex... perhaps there is a better approach than using generics to provide common methods to child classes.</Note>
+    <Note Id="29" Modified="2009-08-18 17:47:13Z">short method</Note>
+    <Note Id="30" Modified="2009-08-18 17:47:24Z">short method</Note>
+    <Note Id="31" Modified="2009-08-18 17:47:49Z">short method</Note>
+    <Note Id="32" Modified="2009-08-18 17:49:07Z">short method</Note>
+    <Note Id="33" Modified="2009-08-18 17:49:13Z">short method</Note>
+    <Note Id="34" Modified="2009-08-18 18:04:05Z">weekdaily is not hungarian notation</Note>
+    <Note Id="35" Modified="2009-08-18 18:05:37Z">is valid data field name</Note>
+    <Note Id="36" Modified="2009-08-18 18:06:00Z">is valid data field name</Note>
+    <Note Id="37" Modified="2009-08-18 18:44:43Z">short method</Note>
+    <Note Id="38" Modified="2009-08-18 19:02:07Z">short method</Note>
+    <Note Id="39" Modified="2009-08-18 19:03:25Z">the spelling is correct because I made up that word</Note>
+    <Note Id="40" Modified="2009-08-18 21:12:11Z">don't care about multibyte chars or non-english languages</Note>
+    <Note Id="41" Modified="2009-08-18 21:42:38Z">SaveNew is fine.  :P</Note>
+    <Note Id="42" Modified="2009-08-18 21:49:00Z">is valid data field name</Note>
+    <Note Id="43" Modified="2009-08-18 21:52:29Z">Custodys is the correct pluralization according to our agreed upon pluralization convention</Note>
+    <Note Id="44" Modified="2009-08-18 21:57:49Z">extensions should be in their own namespace so that they can be included only in files that need them</Note>
+    <Note Id="45" Modified="2009-08-18 22:07:29Z">keeping extension helper to make name shorter (Html.NoteStarImage is shorter than NoteHtmlHelperExtensions.NoteStarImage) and it also fits with other helpers in Notes</Note>
+   </User>
+  </Notes>
+  <Rules>
+   <Rule TypeName="ArrayFieldsShouldNotBeReadOnly" Category="Microsoft.Security" CheckId="CA2105">
+    <Resolution Name="Default">Either replace {0} with a strongly typed collection that cannot be changed, or replace the public field with a method that returns a clone of a private array.</Resolution>
+   </Rule>
+   <Rule TypeName="AssembliesShouldHaveValidStrongNames" Category="Microsoft.Design" CheckId="CA2210">
+    <Resolution Name="NoStrongName">Sign {0} with a strong name key.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidNamespacesWithFewTypes" Category="Microsoft.Design" CheckId="CA1020">
+    <Resolution Name="Default">Consider merging the types defined in '{0}' with another namespace.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUncalledPrivateCode" Category="Microsoft.Performance" CheckId="CA1811">
+    <Resolution Name="Default">{0} appears to have no upstream public or protected callers.</Resolution>
+   </Rule>
+   <Rule TypeName="AvoidUnsealedAttributes" Category="Microsoft.Performance" CheckId="CA1813">
+    <Resolution Name="Default">Seal {0}, if possible.</Resolution>
+   </Rule>
+   <Rule TypeName="CollectionPropertiesShouldBeReadOnly" Category="Microsoft.Usage" CheckId="CA2227">
+    <Resolution Name="Default">Change {0} to be read-only by removing the property setter.</Resolution>
+   </Rule>
+   <Rule TypeName="ConsiderPassingBaseTypesAsParameters" Category="Microsoft.Design" CheckId="CA1011">
+    <Resolution Name="Default">Consider changing the type of parameter {0} in {1} from {2} to its base type {3}. This method appears to only require base class members in its implementation. Suppress this violation if there is a compelling reason to require the more derived type in the method signature.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCallOverridableMethodsInConstructors" Category="Microsoft.Usage" CheckId="CA2214">
+    <Resolution Name="Default">{0} contains a call chain that results in a call to a virtual method defined by the class. Review the following call stack for unintended consequences: {1}</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotCatchGeneralExceptionTypes" Category="Microsoft.Design" CheckId="CA1031">
+    <Resolution Name="Default">Modify {0} to catch a more specific exception than {1} or rethrow the exception.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotDeclareVisibleInstanceFields" Category="Microsoft.Design" CheckId="CA1051">
+    <Resolution Name="Default">Because field {0} is visible outside of its declaring type, change its accessibility to private and add a property, with the same accessibility as the field has currently, to provide access to it.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotIgnoreMethodResults" Category="Microsoft.Usage" CheckId="CA1806">
+    <Resolution Name="TryParse">{0} calls {1} but does not explicitly check whether the conversion succeeded. Either use the return value in a conditional statement or verify that the call site expects that the out argument will be set to the default value when the conversion fails.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotNestGenericTypesInMemberSignatures" Category="Microsoft.Design" CheckId="CA1006">
+    <Resolution Name="Default">Consider a design where {0} doesn't nest generic type {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="DoNotRaiseReservedExceptionTypes" Category="Microsoft.Usage" CheckId="CA2201">
+    <Resolution Name="TooGeneric">{0} creates an exception of type {1}, an exception type that is not sufficiently specific and should never be raised by user code. If this exception instance might be thrown, use a different exception type.</Resolution>
+   </Rule>
+   <Rule TypeName="GenericMethodsShouldProvideTypeParameter" Category="Microsoft.Design" CheckId="CA1004">
+    <Resolution Name="Default">Consider a design where {0} doesn't require explicit type parameter {1} in any call to it.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldBeSpelledCorrectly" Category="Microsoft.Naming" CheckId="CA1704">
+    <Resolution Name="Member">Correct the spelling of '{0}' in member name {1} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+    <Resolution Name="MemberParameter">In method {0}, correct the spelling of '{1}' in parameter name {2} or remove it entirely if it represents any sort of Hungarian notation.</Resolution>
+    <Resolution Name="MemberParameterMoreMeaningfulName">In method {0}, consider providing a more meaningful name than parameter name {1}.</Resolution>
+    <Resolution Name="Type">Correct the spelling of '{0}' in type name {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="IdentifiersShouldNotHaveIncorrectSuffix" Category="Microsoft.Naming" CheckId="CA1711">
+    <Resolution Name="MemberNewerVersion">Either replace the suffix '{0}' in member name {1} with the suggested numeric alternate '2' or provide a more meaningful suffix that distinguishes it from the member it replaces.</Resolution>
+   </Rule>
+   <Rule TypeName="ImplementStandardExceptionConstructors" Category="Microsoft.Design" CheckId="CA1032">
+    <Resolution Name="MissingConstructor">Add the following constructor to {0}: {1}.</Resolution>
+   </Rule>
+   <Rule TypeName="InstantiateArgumentExceptionsCorrectly" Category="Microsoft.Usage" CheckId="CA2208">
+    <Resolution Name="IncorrectParameterName">Method {0} passes '{1}' as the {2} argument to a {3} constructor. Replace this argument with one of the method's parameter names. Note that the provided parameter name should have the exact casing as declared on the method.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkAssembliesWithClsCompliant" Category="Microsoft.Design" CheckId="CA1014">
+    <Resolution Name="Default">Mark {0} with CLSCompliant(true) because it exposes externally visible types.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkAttributesWithAttributeUsage" Category="Microsoft.Design" CheckId="CA1018">
+    <Resolution Name="Inherited">Even though attribute {0} inherits AttributeUsage from its base type, you should consider explicitly specifying AttributeUsage on the type to improve code readability and documentation.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkISerializableTypesWithSerializable" Category="Microsoft.Usage" CheckId="CA2237">
+    <Resolution Name="Default">Add [Serializable] to {0} as this type implements ISerializable.</Resolution>
+   </Rule>
+   <Rule TypeName="MarkMembersAsStatic" Category="Microsoft.Performance" CheckId="CA1822">
+    <Resolution Name="Default">The 'this' parameter (or 'Me' in Visual Basic) of {0} is never used. Mark the member as static (or Shared in Visual Basic) or use 'this'/'Me' in the method body or at least one property accessor, if appropriate.</Resolution>
+   </Rule>
+   <Rule TypeName="NestedTypesShouldNotBeVisible" Category="Microsoft.Design" CheckId="CA1034">
+    <Resolution Name="Default">Do not nest type {0}. Alternatively, change its accessibility so that it is not externally visible.</Resolution>
+   </Rule>
+   <Rule TypeName="OverrideMethodsOnComparableTypes" Category="Microsoft.Design" CheckId="CA1036">
+    <Resolution Name="Operator">{0} should define operator '{1}' since it implements IComparable.</Resolution>
+   </Rule>
+   <Rule TypeName="ParameterNamesShouldMatchBaseDeclaration" Category="Microsoft.Naming" CheckId="CA1725">
+    <Resolution Name="Default">In member {0}, change parameter name {1} to {2} in order to match the identifier as it has been declared in {3}.</Resolution>
+   </Rule>
+   <Rule TypeName="ParameterNamesShouldNotMatchMemberNames" Category="Microsoft.Naming" CheckId="CA1719">
+    <Resolution Name="Default">Change either member or parameter name {0} so that one differs from the other.</Resolution>
+   </Rule>
+   <Rule TypeName="PropertiesShouldNotBeWriteOnly" Category="Microsoft.Design" CheckId="CA1044">
+    <Resolution Name="MakeMoreAccessible">Because the property getter for {0} is less visible than its setter, either increase the accessibility of its getter or decrease the accessibility of its setter.</Resolution>
+   </Rule>
+   <Rule TypeName="PropertiesShouldNotReturnArrays" Category="Microsoft.Performance" CheckId="CA1819">
+    <Resolution Name="Default">Change {0} to return a collection or make it a method.</Resolution>
+   </Rule>
+   <Rule TypeName="ReviewUnusedParameters" Category="Microsoft.Usage" CheckId="CA1801">
+    <Resolution Name="Default">Parameter {0} of {1} is never used. Remove the parameter or use it in the method body.</Resolution>
+   </Rule>
+   <Rule TypeName="SpecifyCultureInfo" Category="Microsoft.Globalization" CheckId="CA1304" />
+   <Rule TypeName="SpecifyStringComparison" Category="Microsoft.Globalization" CheckId="CA1307" />
+   <Rule TypeName="TestForEmptyStringsUsingStringLength" Category="Microsoft.Performance" CheckId="CA1820">
+    <Resolution Name="IsNullOrEmpty">Replace the call to {0} in {1} with a call to 'String.IsNullOrEmpty'.</Resolution>
+   </Rule>
+   <Rule TypeName="TypeNamesShouldNotMatchNamespaces" Category="Microsoft.Naming" CheckId="CA1724">
+    <Resolution Name="System">The type name {0} conflicts in whole or in part with the namespace name '{1}' defined in the .NET Framework. Rename the type to eliminate the conflict.</Resolution>
+   </Rule>
+   <Rule TypeName="UsePreferredTerms" Category="Microsoft.Naming" CheckId="CA1726">
+    <Resolution Name="Member">Replace the term '{0}' in member name {1} with the preferred alternate '{2}'.</Resolution>
+    <Resolution Name="MemberNoAlternate">Replace the term '{0}' in member name {1} with an appropriate alternate or remove it entirely.</Resolution>
+   </Rule>
+   <Rule TypeName="UsePropertiesWhereAppropriate" Category="Microsoft.Design" CheckId="CA1024">
+    <Resolution Name="Default">Change {0} to a property if appropriate.</Resolution>
+   </Rule>
+  </Rules>
+ </FxCopReport>
+</FxCopProject>

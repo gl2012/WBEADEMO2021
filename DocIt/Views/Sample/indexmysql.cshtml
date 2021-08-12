@@ -1,0 +1,148 @@
+﻿
+@using PagedList.Mvc; //import this so we get our HTML Helper
+@using PagedList;
+@using WBEADMS.Views
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section MainContent
+{
+    <h2 class="title-icon icon-samples">Samples Index</h2>
+    <link href="/Content/PagedList.css" rel="stylesheet" type="text/css" />
+
+    <!-- Search Area -->
+    <div class="searchArea">
+        <form method="get">
+            <div class="searchField">
+                <label for="sample_type_id">Sample Type:</label>
+
+            </div>
+            <div class="searchField">
+                <label for="search">Date Start :</label>
+                <span>
+
+
+
+                    <input class="datepicker" id="date_from" maxlength="10" dateformat="yyyy-MM-dd" name="date_from" type="date" value="" />
+
+
+
+
+
+                    <!--<input type="text" id="date_search" name="date_search" readonly />  -->
+
+                </span>
+
+                <label for="search">Date End :</label>
+                <input class="datepicker" id="date_to" maxlength="10" name="date_to" type="date" value="" />
+            </div>
+
+            @Html.Hidden("sort", ViewData["sort"])
+            <input type="submit" class="btnSearch" value="Search" />
+
+        </form>
+    </div>
+    <p> @ViewData["test"]</p>
+    <p>
+        @ViewData["strerror"]
+    </p>    <!-- Action Area + Top Paging-->
+    <div id="actionArea">
+
+    </div>
+    <!-- Data table -->
+   
+    <div id="Grid">
+        <table id="sortable-index">
+            <tr>
+                <th class="no-sort" width="140">Actions</th>
+                <th>Prepared By</th>
+                <th>Sample <Br />Type</th>
+                <th sort_name="wbea-id">WBEA Sample ID</th>
+                <th sort_name="media-serial">Media Serial #</th>
+                <th>Lab Sample ID</th>
+                <th>Received From Lab</th>
+                <th class="no-sort">Travel<br />Blank</th>
+
+            </tr>
+            @if (ViewBag.onepageSample!=null)
+            {
+                foreach (var item in ViewBag.onepageSample)
+                {
+
+                    <tr>
+                        <td class="tableActionLinks">
+                           @item.sampleid
+                        </td>
+                        <td>
+                            @item.sampletype
+                        </td>
+                        <td>
+                            @Html.Encode(item.wbea_id)
+                        </td>
+                        <td>
+                            @Html.Encode(item.media_serial_number)
+                        </td>
+                        <td>
+                            @Html.Encode(item.lab_sample_id)
+                        </td>
+                        <td>
+                            @Html.Encode(item.date_recieved_from_lab)
+                        </td>
+                        <td>
+                            @Html.Encode(item.username)
+                        </td>
+                        <td>
+                            @item.tranvel_blank
+                        </td>
+
+                    </tr>
+
+                }
+                @Html.PagedListPager((IPagedList)ViewBag.onepageSample, page => Url.Action("Indexmysql", new { page }),PagedListRenderOptions.MinimalWithPageCountText)
+            }
+        </table>
+     
+
+    </div>
+       
+
+                <script type="text/javascript">
+                    $(function () {
+
+                        //  function init() {
+                        //  document.getElementById("err_id").style.display = "none";
+                        // }
+                        //  window.onload = init();
+
+
+
+                        $('.date-picker').datepicker({
+                            // howButtonPanel: true,
+
+                            //  changeMonth: true,
+                            dateFormat: "yyyy-MM-dd"
+                        });
+
+
+
+
+
+
+
+
+
+
+
+
+                    }
+                                                      //  var currentText = $(".selector").datepicker("option", "currentText");
+
+                                                        // Setter
+                                                      //  $(".selector").datepicker("option", "currentText", "Now");
+
+                </script>
+
+                }
+

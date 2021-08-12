@@ -1,0 +1,7 @@
+Create view dbo.AdvancedNoteSearch_Views
+as
+select  n.note_id  as advancednotesearch_view_id,n.location_id,n.date_occurred,CAST(n.body AS NVARCHAR(MAX)) as body ,n.created_by,n.date_created,n.parent_type_id,n.is_deleted ,null as sample_type_id  from notes n    where  n.note_id in (select note_id from notes_parameters  where  note_id  not in (select note_id from  notes_chainofcustodys)) 
+union
+select  n.note_id as advancednotesearch_view_id,n.location_id,n.date_occurred,CAST(n.body AS NVARCHAR(MAX)) as body,n.created_by,n.date_created,n.parent_type_id,n.is_deleted, c.sample_type_id  from notes n   join notes_chainofcustodys nc on n.note_id=nc.note_id join chainofcustodys c on  nc.chain_of_custody_id=c.chain_of_custody_id
+union
+select  n.note_id as advancednotesearch_view_id,n.location_id,n.date_occurred,CAST(n.body AS NVARCHAR(MAX)) as body,n.created_by,n.date_created,n.parent_type_id, n.is_deleted, s.sample_type_id  from notes n   join notes_samples ns  on n.note_id=ns.note_id join samples s on  ns.sample_id=s.sample_id

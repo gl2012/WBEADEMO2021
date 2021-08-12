@@ -1,0 +1,41 @@
+/*  
+Sticky Footer Solution
+by Steve Hatcher 
+http://stever.ca
+http://www.cssstickyfooter.com
+*/
+
+/* must declare 0 margins on everything, also for main layout components use padding, not 
+vertical margins (top and bottom) to add spacing, else those margins get added to total height 
+and your footer gets pushed down a bit more, creating vertical scroll bars in the browser */
+
+html, body, .page {height: 100%;}
+
+body > .page { height: auto; min-height: 100%; }
+
+.pageInner { padding-bottom: 140px; }  /* must be same height as the footer */
+
+#footer 
+	{
+	position: relative;
+	margin-top: -150px !important; /* negative value of footer height */
+	height: 130px;
+	clear:both;
+	} 
+
+/* CLEAR FIX*/
+.clearfix:after 
+	{
+	content: ".";
+	display: block;
+	height: 0;
+	clear: both;
+	visibility: hidden;
+	}
+	
+.clearfix { display: inline-block; }
+
+/* Hides from IE-mac \*/
+* html .clearfix { height: 1%; }
+.clearfix { display: block; }
+/* End hide from IE-mac */

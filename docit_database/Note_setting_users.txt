@@ -1,0 +1,5 @@
+create table DocIT.dbo.NoteSettings_Users(
+   note_setting_id int ,
+   user_id int ,
+   
+);

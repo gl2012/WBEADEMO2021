@@ -1,0 +1,5 @@
+create table DocIT.dbo.NoteSettings_Parameters(
+   note_setting_id int ,
+   parameter_id int ,
+   
+);

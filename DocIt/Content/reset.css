@@ -1,0 +1,24 @@
+/*
+	Basic CSS Reset
+	Written by Airshed Systems Inc. | www.AirshedSystems.com
+	September 2009
+-------------------------------------------------------------*/
+
+* {
+margin:0;
+padding:0;
+}
+
+h1,h2,h3,h4,h5,h6,blockquote,form,label,ol,dl,fieldset,address {
+margin:0.5em 0;
+}
+
+select option { padding-right: 8px; }
+
+dd { margin-left:1em; }
+
+fieldset { padding:.5em; }
+
+img { border: none; }
+
+p { padding: 0; margin: 0.6em 0 0.8em 0; }

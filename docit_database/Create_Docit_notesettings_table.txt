@@ -1,0 +1,11 @@
+create table DocIT.dbo.NoteSettings(
+   note_setting_id int PRIMARY KEY IDENTITY(1,1),
+   setting_name VARCHAR(100) NOt null,
+   setting_description varchar(1000) ,
+  
+  
+   create_by int not null,  
+   create_date datetime ,
+   edit_date  Datetime,
+   
+);

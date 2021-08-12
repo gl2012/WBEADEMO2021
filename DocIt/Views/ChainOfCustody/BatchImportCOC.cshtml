@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "BatchImportPassiveCOC";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using System.Data
+@model DataTable
+@{
+    // Layout = null;
+}
+
+@section MainContent
+{
+
+    @using (Html.BeginForm("BatchImportCOC", "ChainOfCustody", FormMethod.Post, new { enctype = "multipart/form-data" }))
+    {
+
+        <label>Upload File:</label>
+        <input type="file" id="fileUpload" name="fileUpload" width="300" />
+
+        if (ViewData["Status"].ToString() == "Upload")
+        {
+            <input type="submit" class="btnSearch" name="form_action" value="Upload File" />
+        }
+
+
+        if (ViewData["Status"].ToString() == "Verify")
+        {
+
+            <input type="Submit" class="btnSearch" name="form_action" value="Verify" />
+        }
+        if (ViewData["Status"].ToString() == "Save")
+        {
+
+            <input type="submit" class="btnSearch" name="form_action" value="Save" />
+        }
+       
+
+        <!--Display Error Message-->
+<div style="color:red;">
+    @ViewBag.Message
+    @if (ViewData["DuplicateData"].ToString() == "Y")
+    {<a href="/ChainOfCustody.aspx/ExportDuplicatePassive" style="color:crimson">Download Duplicate Passive Air Sampling Data </a>
+
+    }
+    @if (ViewData["ExportPDF"].ToString() == "Yes")
+    { <a href="/ChainOfCustody.aspx/ExportPDF" style="color:crimson">Download All Passive Air Sampling PDF </a>
+       
+      
+    }
+</div>
+
+        <!--Show the Data Table on the View after reading the Excel File-->
+        if (Model != null)
+        {
+            <div id="Grid">
+                <table id="sortable-index">
+                    <tr>
+                        @for (int i = 0; i < Model.Columns.Count; i++)
+                        {
+                            <th>@Model.Columns[i].ColumnName</th>
+
+                        }
+                    </tr>
+                    @for (int i = 0; i < Model.Rows.Count; i++)
+                    {
+                        <tr>
+
+                            @for (int j = 0; j < Model.Columns.Count; j++)
+                            {
+                                if (Model.Rows[i][j].ToString() == "Download")
+                                {
+                            <td>
+                               <!-- Html.ActionLink("Passive Air Sampling-Chain of Custody-" + Model.Rows[i][1], "ViewReport", new { id = Model.Rows[i][1], reporttype = "Passive_COC" })-->
+                                <a href="/ChainOfCustody.aspx/DownloadActiveReport?cocId=@Model.Rows[i][1]" style="color:crimson">Download Passive Air Sampling PDF-@Model.Rows[i][1] </a>
+                            </td>
+                                }
+                                else
+                                {
+                                    <td>  @Model.Rows[i][j]</td>
+
+                                }
+                            }
+
+                        </tr>
+
+                    }
+                </table>
+            </div>
+        }
+
+    }
+
+}
+<input type="hidden" name="GridHtml" />
+<input type="submit" id="btnSubmit" value="Export" />
+<script type="text/javascript">
+    $(function () {
+        $("#btnSubmit").click(function () {
+            $("input[name='GridHtml']").val($("#Grid").html());
+        });
+    });
+</script>
+        }
+
+
+

@@ -1,0 +1,46 @@
+/*
+	PRINT CSS for WBEA Doc-IT
+	Written by Airshed Systems Inc. | www.AirshedSystems.com
+	April 2010
+-------------------------------------------------------------*/
+
+@page { margin: .25in; }
+
+
+
+/*/// Items to fix for print ///*/
+h2, h2.title-icon { padding-left: 0; }
+
+body * { float: none; }
+
+
+/*/// Items to remove from print ///*/
+.noPrint, #header, #footer, .buttonList, #botPaging, #actionArea, .searchArea
+{ display: none; }
+
+.forcePrint { display:block !important; }
+	.forcePrint .btnSearch, .forcePrint .btnReset { display: none !important; } 
+
+body > .page { height: auto; min-height: 1%; }
+#main, .page { overflow: visible !important; }
+#main, .pageInner { padding-bottom: 0; }
+
+.ui-widget-header, .ui-state-default a, .ui-widget-content, fieldset { border-color: #333; color: #000; }
+	legend { color: #000; border: 1px solid #333; }
+		legend .btnHide, legend .btnShow { display: none; }
+	.ui-widget-content legend { border: none; }
+
+
+
+/*/// Chain of Custody ///*/
+.cocPage .quickNoteComments
+{ display: none; }
+
+table.cocTable { padding: 0; margin: 0 1em 3px 1em; }
+
+ul.cocOverview { border: none; width: 100%; padding-bottom: 5px; margin-bottom: 15px; border-bottom: 1px solid #000; }
+	ul.cocOverview li.first { padding-left: 0; }
+
+.cocPage .fieldsetDeployment { width: 48%; }
+.cocPage .fieldsetDeployment.lessHalfWidth { width: auto; }
+.cocPage .fieldsetRetrieval.open.fullWidth { display: none; }

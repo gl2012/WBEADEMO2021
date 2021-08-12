@@ -1,0 +1,109 @@
+/* Copyright © [AUTO:CURRENT_YEAR] Air Shed Systems Inc. All rights reserved.
+ * www.airshedsystems.com <http://www.airshedsystems.com>
+ * Notice of License
+ * Provided to WBEA under license agreement dated 22 December 2010
+ */
+
+/*	CSS for WBEA Doc-IT CALENDAR */
+
+
+/* Main Layout 
+-------------------------------------------------------------*/
+.miniCalendarWrapper { float: right; padding: 35px 0 0 0; width: 260px; }
+.miniCalInner { float: right; }
+#calendarInfo .ui-state-highlight, .miniCalInner .ui-widget-content .ui-state-highlight { background: #ff9; background-image: none; color: #000; }
+.largeCalendarWrapper { width: auto; margin: 0 260px 0 0; }
+
+
+/* Calendar Topper 
+-------------------------------------------------------------*/
+/*/// Faux Tabs ///*/
+.fauxTabs { }
+	.fauxTabs ul { margin: 0; padding: 0; list-style: none; overflow:hidden; }
+		.fauxTabs ul li { margin: 0; display: inline; padding: 15px 5px; }
+.fauxTabs.ui-tabs { padding: .3em 0 0; border-bottom: 1px solid #fff; }
+
+#calLocation2 { margin: 1em 0; display:none; }
+#calLocation3 { margin: 0 0 .5em; }
+		
+#calTopper { }
+	#calTopper #calLocation { float:right; text-align:right; margin: 3px 0 0; padding: 0; }
+
+	
+	
+
+
+
+/* Main Calendar 
+-------------------------------------------------------------*/
+#calTable { width: 100%; background: url('images/jqueryui/ui-bg_diagonals-small_65_d6e2f1_40x40.png') repeat 0 0; border: 1px solid #325d95; }
+#calTable th 
+	{
+	background: url("images/ui-bg_diagonals-small_25_2fa52e_40x40.png") repeat scroll 50% 50% #399258;
+	font: bold 1.2em tahoma,Verdana,Geneva,sans-serif;
+	width: 14.5%;
+	color: #fff;	
+	padding: 3px 2px 2px 2px;
+	border-right: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	}
+#calTable th#calTh6 { border-right: none; }
+#calTable td
+	{
+	vertical-align: top;
+	padding: 0 0 1px 0;
+	border-right: 1px solid #bacee8;
+	height: 50px;
+	}
+#calTable td.selected .calCellDate { background: #96e079; color: #000; }
+#calTable td.selected .calCellContent { }
+#calTable .calCellContent
+	{
+	font-size: 10px;
+	vertical-align: top;
+	background-color: #fff;
+	padding: 0 3px;
+	}
+#calTable .calCellContent ul { font: 1.1em tahoma,arial,verdana,helvetica,sans-serif; margin: 0; padding: 2px 0 0 0; list-style: none; }
+#calTable .calCellContent ul li { margin: 0; padding: 1px 0 3px; border-bottom: 1px dotted #ccc; }
+#calTable .calCellContent ul li a { text-decoration: none; }
+#calTable .calCellDate
+	{
+	font-size: 0.9em;
+	text-align: right;
+	padding: 0 3px;	
+	font-weight: bold;
+	border-bottom: 1px solid #325d95;
+	}
+#calTable .calCellThisMonth .calCellDate { color: #fff; background: #779ed2 url('images/body-bg.gif') repeat 0 -45px; } 
+#calTable .calCellOffMonth .calCellDate { color: #fff; background: #999; }
+#calTable .calCellToday .calCellDate { color: #000; background: #ff9; }
+#calTable .calCellToday .calCellContent { background-color: #ff9; }
+
+
+
+/* Calendar Filters
+-------------------------------------------------------------*/
+#calFilters { font-weight: bold; margin: 1.2em 0 1em 0; }
+#calFilters select { font-weight: normal; }
+
+
+/* Calendar Legend 
+-------------------------------------------------------------*/
+.calLegend { float: right; }
+.calLegend.searchArea { margin: 0 0 .5em 0; width: auto; padding: 0 0 0 20px; }
+.calLegend table td span { padding: 0 0 0 5px; }
+
+.calendarStyles .forecasted, .calendarStyles .saved, .calendarStyles .committed, .calendarStyles .retrieved  { padding: 0 0 2px 17px; }
+
+.calendarStyles .forecasted { color: #f33; background: url('images/icons/bullet_red.png') no-repeat 0 0; }
+.calendarStyles a.forecasted:hover { color: #800; }
+
+.calendarStyles .saved { color: #2985cf; background: url('images/icons/flag_blue.png') no-repeat 0 0; }
+.calendarStyles a.saved:hover { color: #325d95; }
+
+.calendarStyles .committed { color: #23a700; background: url('images/icons/tick.png') no-repeat 0 0; }
+.calendarStyles a.committed:hover { color: #186f00; }
+
+.calendarStyles .retrieved { color: #63f; background: url('images/icons/lorry-purple.png') no-repeat 0 0; }
+.calendarStyles a.retrieved:hover { color: #508; }

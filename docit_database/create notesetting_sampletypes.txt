@@ -1,0 +1,5 @@
+create table DocIT.dbo.NoteSettings_SampleTypes(
+   note_setting_id int ,
+   sample_type_id int ,
+   
+);
